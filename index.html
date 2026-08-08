@@ -292,6 +292,102 @@
   .gterm dt{ font-family: var(--mono); font-weight: 700; font-size: 13.5px; color: var(--green-deep); }
   .gterm dd{ margin: 4px 0 0; font-size: 13.5px; color: var(--ink-soft); line-height: 1.5; }
 
+  /* tabla de práctica */
+  .practice-table-wrap{
+    overflow-x: auto;
+    margin: 16px 0 24px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+  }
+  table.practice-table{
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    background: var(--cell);
+  }
+  table.practice-table th, table.practice-table td{
+    padding: 8px 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--line);
+    white-space: nowrap;
+  }
+  table.practice-table th{
+    font-family: var(--mono);
+    font-size: 11.5px;
+    text-transform: uppercase;
+    letter-spacing: .03em;
+    color: var(--green-deep);
+    background: var(--blue-tint);
+  }
+  table.practice-table tr:last-child td{ border-bottom: none; }
+
+  /* pregunta -> respuesta */
+  .qa-list{ display:flex; flex-direction:column; gap: 10px; margin: 14px 0 8px; }
+  .qa-item{
+    background: var(--cell);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 12px 14px;
+    display:grid;
+    grid-template-columns: 1fr auto;
+    gap: 10px;
+    align-items:center;
+  }
+  .qa-item .qa-prompt{ font-family: var(--mono); font-size: 13px; color: var(--ink); }
+  .qa-item .qa-answer{
+    font-family: var(--sans); font-size: 12.5px; font-weight: 700;
+    color: var(--green-deep); background: #E9F2EC;
+    border-radius: 12px; padding: 4px 10px; white-space: nowrap;
+  }
+
+  /* tabla de práctica */
+  .practice-table-wrap{
+    overflow-x: auto;
+    margin: 16px 0 24px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+  }
+  table.practice-table{
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    background: var(--cell);
+  }
+  table.practice-table th, table.practice-table td{
+    padding: 8px 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--line);
+    white-space: nowrap;
+  }
+  table.practice-table th{
+    font-family: var(--mono);
+    font-size: 11.5px;
+    text-transform: uppercase;
+    letter-spacing: .03em;
+    color: var(--green-deep);
+    background: var(--blue-tint);
+  }
+  table.practice-table tr:last-child td{ border-bottom: none; }
+
+  /* pregunta -> respuesta */
+  .qa-list{ display:flex; flex-direction:column; gap: 10px; margin: 14px 0 8px; }
+  .qa-item{
+    background: var(--cell);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 12px 14px;
+    display:grid;
+    grid-template-columns: 1fr auto;
+    gap: 10px;
+    align-items:center;
+  }
+  .qa-item .qa-prompt{ font-family: var(--mono); font-size: 13px; color: var(--ink); }
+  .qa-item .qa-answer{
+    font-family: var(--sans); font-size: 12.5px; font-weight: 700;
+    color: var(--green-deep); background: #E9F2EC;
+    border-radius: 12px; padding: 4px 10px; white-space: nowrap;
+  }
+
   /* placeholder de parte sin contenido todavía */
   .soon{
     display:flex; flex-direction:column; align-items:flex-start; gap: 10px;
@@ -323,6 +419,7 @@
     .panel{ padding: 28px 18px 0; }
     .steps{ grid-template-columns: 1fr; }
     .glossary{ grid-template-columns: 1fr; }
+    .qa-item{ grid-template-columns: 1fr; }
   }
 
   @media (prefers-reduced-motion: reduce){
@@ -374,7 +471,8 @@
 
     <!-- ===== hojas de la Parte 2 ===== -->
     <nav class="sheet-tabs-row" id="tabsParte2" role="tablist" aria-label="Hojas — Parte 2" hidden>
-      <button class="htab active" data-sheet="p2-proximamente">En preparación</button>
+      <button class="htab active" data-sheet="p2-pregunta-datos">Pregúntale a tus datos</button>
+      <button class="htab" data-sheet="p2-glosario">Glosario</button>
     </nav>
 
     <!-- ===================== PARTE 1 · Bienvenida ===================== -->
@@ -587,14 +685,117 @@
       <p style="margin-top:12px;"><button class="btn" data-goto-part="parte2">Continuar a la Parte 2 →</button></p>
     </section>
 
-    <!-- ===================== PARTE 2 (placeholder) ===================== -->
-    <section id="p2-proximamente" class="panel" role="tabpanel" hidden>
-      <span class="eyebrow">Parte 2 · Analiza tus datos con Copilot</span>
-      <div class="soon">
+    <!-- ===================== PARTE 2 · Pregúntale a tus datos ===================== -->
+    <section id="p2-pregunta-datos" class="panel" role="tabpanel" hidden>
+      <span class="eyebrow">Parte 2 · Hoja 1</span>
+      <h1>Pregúntale a tus datos</h1>
+      <p class="lede">Hasta ahora usaste Copilot para pedirle acciones sobre tu planilla. En esta hoja das el siguiente paso: convertir preguntas de negocio en respuestas concretas — sin escribir una sola fórmula.</p>
+
+      <h2>¿Qué es una "pregunta puntual"?</h2>
+      <p>Una pregunta puntual es la que tiene una respuesta concreta: un número, un nombre o una fecha. "¿Cuál fue el mes con más ventas?", "¿cuántas unidades vendimos?" o "¿quién fue el mejor vendedor?" son preguntas puntuales. Antes de Copilot, este tipo de respuestas requerían fórmulas como <code>MAX</code>, <code>MIN</code>, <code>SUMA</code>, <code>CONTAR</code> o <code>PROMEDIO</code>, a veces combinadas entre sí. Ahora simplemente las preguntás en lenguaje natural.</p>
+
+      <div class="cell-card">
+        <span class="cell-ref">B1</span>
+        <h3>1. Copilot decide solo si necesita tocar tu hoja</h3>
+        <p>Hoy ya no elegís manualmente entre "modo chat" y "modo agente": es una sola conversación. Le hacés una pregunta puntual y Copilot responde; si para llegar a esa respuesta necesita hacer un cálculo intermedio, puede crear por su cuenta un pequeño conjunto de datos auxiliar en la hoja para mostrarte cómo llegó al resultado. Vos no activás nada aparte, simplemente sucede cuando hace falta.</p>
+        <div class="prompt-row">
+          <div class="prompt prompt-good"><span class="mark">✓</span> Si preferís que no toque tu planilla para nada, decíselo en el mismo prompt: "respondeme sin modificar la hoja". Si no te molesta el dato auxiliar, dejalo trabajar como le resulte más preciso.</div>
+        </div>
+      </div>
+
+      <div class="cell-card">
+        <span class="cell-ref">B2</span>
+        <h3>2. Nombrá la columna exacta al preguntar</h3>
+        <p>Esto ya lo viste en la Parte 1, pero acá se nota todavía más: una pregunta ambigua sobre datos numéricos puede tener varias respuestas posibles válidas. "¿Cuál fue el mejor mes?" — ¿mejor en unidades vendidas, en dinero, en cantidad de ventas registradas? Nombrando la columna exacta eliminás esa ambigüedad.</p>
+        <div class="prompt-row">
+          <div class="prompt prompt-bad"><span class="mark">✕</span> "¿Cuál fue el mejor mes?"</div>
+          <div class="prompt prompt-good"><span class="mark">✓</span> "¿Cuál fue el mes con mayor total de ventas en la columna Total?"</div>
+        </div>
+        <div class="exercise">
+          <label><input type="checkbox"><span>Tomá una pregunta ambigua que se te ocurra sobre tus datos y reescribila nombrando la columna exacta que querés que Copilot use.</span></label>
+        </div>
+      </div>
+
+      <h2>Practicá con una planilla de ejemplo</h2>
+      <p>Para esta hoja vas a trabajar con una planilla ficticia de ventas de una empresa. Tiene estas columnas:</p>
+      <div class="practice-table-wrap">
+        <table class="practice-table">
+          <thead>
+            <tr><th>Mes</th><th>Región</th><th>Producto</th><th>Vendedor</th><th>Unidades</th><th>Precio Unitario</th><th>Total</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Enero</td><td>Norte</td><td>Laptop</td><td>Carlos</td><td>5</td><td>$1.200</td><td>$6.000</td></tr>
+            <tr><td>Febrero</td><td>Norte</td><td>Laptop</td><td>María</td><td>7</td><td>$1.200</td><td>$8.400</td></tr>
+            <tr><td>Marzo</td><td>Centro</td><td>Monitor</td><td>Lucía</td><td>7</td><td>$350</td><td>$2.450</td></tr>
+            <tr><td>…</td><td>…</td><td>…</td><td>…</td><td>…</td><td>…</td><td>…</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:13.5px; color:var(--ink-soft);">Armá una planilla parecida (o usá una tuya con esta misma estructura: al menos una columna de fecha/período, una de categoría, una de responsable y una de monto) y probá estas cuatro preguntas puntuales, una por una:</p>
+
+      <div class="qa-list">
+        <div class="qa-item">
+          <span class="qa-prompt">"¿Cuál fue el mes con mayor total de ventas?"</span>
+          <span class="qa-answer">→ un mes</span>
+        </div>
+        <div class="qa-item">
+          <span class="qa-prompt">"¿Cuántas ventas se registraron en total?"</span>
+          <span class="qa-answer">→ una cantidad</span>
+        </div>
+        <div class="qa-item">
+          <span class="qa-prompt">"¿Cuál es el promedio de la columna Total?"</span>
+          <span class="qa-answer">→ un número</span>
+        </div>
+        <div class="qa-item">
+          <span class="qa-prompt">"¿Qué vendedor tiene el mayor total acumulado en la columna Total?"</span>
+          <span class="qa-answer">→ un nombre</span>
+        </div>
+      </div>
+
+      <div class="exercise">
+        <label><input type="checkbox"><span>Hacele estas cuatro preguntas a Copilot sobre tu planilla y anotá qué respuesta te da cada una.</span></label>
+        <label style="margin-top:6px;"><input type="checkbox"><span>Repetí una de las cuatro preguntas quitándole el nombre exacto de la columna (por ejemplo "¿cuál fue el mejor mes?") y compará si la respuesta cambia o se vuelve más confusa.</span></label>
+      </div>
+
+      <div class="prof-note">
+        <span class="prof-label">💡 Sobre el dato auxiliar</span>
+        <p>Si ves que Copilot dejó una tabla chica con el cálculo intermedio (por ejemplo, el total agrupado por mes), no es un error: es cómo te muestra su trabajo cuando decidió tomar una acción para responderte. Podés dejarla como referencia o borrarla una vez que confirmaste la respuesta.</p>
+      </div>
+
+      <div class="update-box">
+        <span class="eyebrow">Para tener en cuenta</span>
+        <ul>
+          <li>Una pregunta puntual siempre apunta a <strong>un solo dato de salida</strong>: un número, un nombre o una fecha. Si tu pregunta podría responderse con una lista o un gráfico, ya no es puntual — eso lo vas a ver en las próximas hojas de esta parte.</li>
+          <li>Recordá el límite de la Parte 1: revisá los resultados importantes antes de darlos por buenos, sobre todo si vas a tomar una decisión con ellos.</li>
+        </ul>
+      </div>
+
+      <p style="margin-top:12px;"><button class="btn btn-ghost" data-goto="p2-glosario">Ver el glosario de esta parte →</button></p>
+    </section>
+
+    <!-- ===================== PARTE 2 · Glosario ===================== -->
+    <section id="p2-glosario" class="panel" role="tabpanel" hidden>
+      <span class="eyebrow">Parte 2 · Hoja 2</span>
+      <h1>Glosario rápido</h1>
+      <p class="lede">Los términos de esta parte, para tener a mano mientras practicás.</p>
+      <dl class="glossary">
+        <div class="gterm">
+          <dt>Pregunta puntual</dt>
+          <dd>Pregunta cuya respuesta es un único dato concreto: un número, un nombre o una fecha.</dd>
+        </div>
+        <div class="gterm">
+          <dt>Comportamiento agéntico</dt>
+          <dd>Capacidad de Copilot de tomar acciones sobre la hoja (no solo responder) cuando lo necesita, sin que el alumno tenga que activar un modo aparte.</dd>
+        </div>
+        <div class="gterm">
+          <dt>Dato auxiliar</dt>
+          <dd>Tabla o cálculo intermedio que Copilot deja en la hoja como evidencia de cómo llegó a un resultado.</dd>
+        </div>
+      </dl>
+
+      <div class="soon" style="padding: 20px 0 10px;">
         <span class="tag">en preparación</span>
-        <h1>Esta parte todavía se está armando</h1>
-        <p class="lede">A medida que avance el curso, esta parte se va a completar con el contenido de <strong>Analiza tus datos con Copilot</strong>, organizado en hojas cortas igual que la Parte 1.</p>
-        <button class="btn btn-ghost" data-goto-part="parte1">← Volver a la Parte 1</button>
+        <p class="lede" style="font-size:14px;">Esta parte se va a seguir completando con más hojas a medida que avanza el curso.</p>
       </div>
     </section>
 
@@ -608,14 +809,15 @@
   // ---- estructura de partes y hojas ----
   const parts = {
     parte1: { sheets: ['p1-bienvenida', 'p1-principios', 'p1-limites', 'p1-glosario'], tabsRow: 'tabsParte1' },
-    parte2: { sheets: ['p2-proximamente'], tabsRow: 'tabsParte2' }
+    parte2: { sheets: ['p2-pregunta-datos', 'p2-glosario'], tabsRow: 'tabsParte2' }
   };
   const sheetMeta = {
-    'p1-bienvenida':  { ref: 'P1.A1', title: 'Bienvenida' },
-    'p1-principios':  { ref: 'P1.B1', title: 'Los 5 principios de prompting' },
-    'p1-limites':     { ref: 'P1.C1', title: 'Los límites de Copilot' },
-    'p1-glosario':    { ref: 'P1.D1', title: 'Glosario rápido' },
-    'p2-proximamente':{ ref: 'P2.A1', title: 'Parte en preparación' }
+    'p1-bienvenida':     { ref: 'P1.A1', title: 'Bienvenida' },
+    'p1-principios':     { ref: 'P1.B1', title: 'Los 5 principios de prompting' },
+    'p1-limites':        { ref: 'P1.C1', title: 'Los límites de Copilot' },
+    'p1-glosario':       { ref: 'P1.D1', title: 'Glosario rápido' },
+    'p2-pregunta-datos': { ref: 'P2.A1', title: 'Pregúntale a tus datos' },
+    'p2-glosario':       { ref: 'P2.B1', title: 'Glosario rápido' }
   };
 
   const partTabs = document.querySelectorAll('.part-tab[data-part]');
