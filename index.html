@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cuaderno_Copilot.xlsx — Apuntes de Excel con IA</title>
+<title>Copilot para Excel — Curso interactivo</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -113,17 +113,15 @@
   }
   .tab[disabled] .lock{ font-size: 11px; }
 
-  .sidebar-note{
+  .sidebar-foot{
     margin-top: auto;
-    display: block;
     font-family: var(--mono);
-    font-size: 12.5px;
+    font-size: 12px;
     color: var(--ink-soft);
     border-top: 1px dashed var(--line);
     padding-top: 16px;
     line-height: 1.5;
   }
-  .sidebar-note strong{ display:block; font-family: var(--sans); font-size: 13px; margin-bottom: 4px; color: var(--ink); }
 
   /* ---------- MAIN SHEET ---------- */
   .sheet{ padding: 0 0 60px; min-width: 0; }
@@ -184,7 +182,7 @@
   .step h4{ margin: 6px 0 4px; font-size: 14.5px; font-family: var(--sans); }
   .step p{ margin:0; font-size: 13.5px; color: var(--ink-soft); }
 
-  /* callout - reused motif */
+  /* tip callout - reused motif */
   .prof-note{
     background: var(--blue-tint);
     border-left: 3px solid var(--blue);
@@ -286,7 +284,7 @@
     .sheet-tabs{ flex-direction: row; }
     .tab{ clip-path:none; white-space: nowrap; border-radius: var(--radius); border:1px solid transparent; }
     .tab.active{ border: 1px solid var(--line); }
-    .sidebar-note{ display:none; }
+    .sidebar-foot{ display:none; }
     .panel{ padding: 28px 18px 0; }
     .steps{ grid-template-columns: 1fr; }
     .glossary{ grid-template-columns: 1fr; }
@@ -304,67 +302,61 @@
     <div class="sidebar-head">
       <span class="logo-fx">fx</span>
       <div>
-        <p class="wb-title">Cuaderno_Copilot.xlsx</p>
-        <p class="wb-sub">apuntes personales</p>
+        <p class="wb-title">Copilot_para_Excel.xlsx</p>
+        <p class="wb-sub">curso interactivo</p>
       </div>
     </div>
 
-    <nav class="sheet-tabs" role="tablist" aria-label="Módulos del cuaderno">
+    <nav class="sheet-tabs" role="tablist" aria-label="Módulos del curso">
       <button class="tab active" data-target="inicio" role="tab" aria-selected="true">Inicio</button>
       <button class="tab" data-target="modulo1" role="tab" aria-selected="false">Hoja 1 · Prompting</button>
-      <button class="tab" data-target="modulo2" role="tab" aria-selected="false">Hoja 2 · próximo módulo</button>
-      <button class="tab" data-target="modulo3" role="tab" aria-selected="false">Hoja 3 · próximo módulo</button>
+      <button class="tab" data-target="modulo2" role="tab" aria-selected="false">Hoja 2 · próximamente</button>
+      <button class="tab" data-target="modulo3" role="tab" aria-selected="false">Hoja 3 · próximamente</button>
     </nav>
 
-    <div class="sidebar-note">
-      <strong>Sobre este cuaderno</strong>
-      Apuntes personales de aprendizaje sobre Copilot en Excel, organizados como una hoja de cálculo.
-    </div>
+    <p class="sidebar-foot">Este cuaderno se va completando a medida que avanza el curso. Volvé cada tanto para ver las hojas nuevas.</p>
   </aside>
 
   <main class="sheet">
     <div class="formula-bar">
       <span class="fb-ref" id="fbRef">A1</span>
       <span class="fb-icon">fx</span>
-      <span class="fb-text" id="fbText">Bienvenida al cuaderno</span>
+      <span class="fb-text" id="fbText">Bienvenida al curso</span>
     </div>
 
     <!-- ===================== INICIO ===================== -->
     <section id="inicio" class="panel" role="tabpanel">
-      <span class="eyebrow">Cuaderno de apuntes personal</span>
-      <h1>Tus notas sobre Copilot para Excel</h1>
-      <p class="lede">Este cuaderno acompaña tu proceso de aprendizaje sobre <strong>Copilot en Excel</strong>. Acá vas a encontrar lo que vas viendo en cada módulo, reorganizado, explicado con tus propias palabras y con ejercicios cortos para fijarlo — pero no reemplaza el estudio original de cada tema.</p>
+      <span class="eyebrow">Curso interactivo</span>
+      <h1>Copilot para Excel: llevá tus planillas a otro nivel con IA</h1>
+      <p class="lede">Este curso te acompaña paso a paso para que aprendas a usar Copilot dentro de Excel: cómo pedirle las cosas de forma correcta, qué puede hacer por vos, dónde todavía tiene límites y cómo sacarle el máximo provecho sin perder tiempo corrigiendo resultados.</p>
 
-      <div class="prof-note">
-        <span class="prof-label">🎓 Por qué seguir profundizando en cada tema</span>
-        <p>Estas páginas son un resumen de repaso. Ver el material original en vivo o en detalle te permite notar errores comunes en el momento y entender el contexto de casos reales que un resumen escrito no puede capturar. La idea es: <strong>primero el aprendizaje a fondo, después este cuaderno para repasar y practicar.</strong></p>
-      </div>
-
-      <h2>Cómo usar este cuaderno</h2>
+      <h2>Cómo está pensado este curso</h2>
       <div class="steps">
         <div class="step">
           <span class="num">01</span>
-          <h4>Estudiá el tema</h4>
-          <p>Completá la lección sin pausar para tomar apuntes — solo prestá atención.</p>
+          <h4>Recorré cada hoja</h4>
+          <p>Cada módulo desarrolla un tema puntual, con ejemplos concretos de cómo pedirle bien las cosas a Copilot.</p>
         </div>
         <div class="step">
           <span class="num">02</span>
-          <h4>Repasá acá</h4>
-          <p>Volvé a esta hoja del cuaderno para fijar las ideas clave y ver los ejemplos comparados.</p>
+          <h4>Probá los ejemplos</h4>
+          <p>Vas a ver comparaciones de prompts que funcionan mal y prompts que funcionan bien — probalos en tu propia planilla.</p>
         </div>
         <div class="step">
           <span class="num">03</span>
-          <h4>Practicá en Excel</h4>
-          <p>Resolvé el mini-ejercicio de cada sección con un archivo real, no solo leyendo.</p>
+          <h4>Resolvé los ejercicios</h4>
+          <p>Cada sección incluye una actividad corta para que fijes lo aprendido con un archivo real, no solo leyendo.</p>
         </div>
       </div>
+
+      <p style="margin-top:32px;"><button class="btn" id="startBtn" type="button">Empezar por la Hoja 1 →</button></p>
     </section>
 
     <!-- ===================== MODULO 1 ===================== -->
     <section id="modulo1" class="panel" role="tabpanel" hidden>
       <span class="eyebrow">Hoja 1</span>
       <h1>Los 5 principios para prompts efectivos en Copilot</h1>
-      <p class="lede">Cinco reglas para escribir instrucciones que Copilot entienda bien a la primera, en lugar de tener que corregir el resultado varias veces.</p>
+      <p class="lede">Cinco reglas clave para escribir instrucciones que Copilot entienda bien a la primera, en lugar de tener que corregir el resultado varias veces.</p>
 
       <div class="cell-card">
         <span class="cell-ref">A1</span>
@@ -432,8 +424,8 @@
       </div>
 
       <div class="prof-note">
-        <span class="prof-label">🎓 Lo que el estudio a fondo te da y esto no</span>
-        <p>Ver en vivo qué pasa cuando Copilot interpreta mal un prompt ambiguo y cómo corregirlo sobre la marcha es más valioso que leerlo en un resumen — ese proceso de prueba y error conviene experimentarlo de primera mano.</p>
+        <span class="prof-label">💡 Tip</span>
+        <p>Practicá estos cinco principios directamente en tus propios archivos. Cuanto más los apliques, más rápido se vuelven un hábito y menos vas a tener que corregir los resultados de Copilot.</p>
       </div>
 
       <div class="update-box">
@@ -443,6 +435,62 @@
           <li>Desde 2026, muchas versiones de Copilot incorporan un <strong>modo Agente</strong>, que permite encadenar varios pasos a partir de una sola instrucción más elaborada. Aun así, para aprender a prompt-ear bien, conviene seguir practicando "una cosa por vez" primero.</li>
           <li>Copilot también puede "anclarse" a otras fuentes además de la hoja activa (por ejemplo, listas de SharePoint), dependiendo de tu plan de Microsoft 365.</li>
         </ul>
+      </div>
+
+      <h2>Los límites de Copilot (para que no te frustres)</h2>
+      <p class="lede">Conocer hasta dónde llega Copilot es tan importante como saber pedirle cosas. Si no conocés sus límites, vas a terminar pidiéndole cosas que no puede hacer, vas a pensar que "no sirve" y te vas a frustrar sin necesidad. Acá tenés los cuatro límites más importantes que tenés que tener siempre presentes.</p>
+
+      <div class="cell-card">
+        <span class="cell-ref">A6</span>
+        <h3>1. Copilot también se puede equivocar</h3>
+        <p>Copilot te va a responder siempre con un tono seguro y prolijo, como si estuviera 100% seguro de lo que dice. Pero ese tono no es garantía de que el resultado sea correcto. Si le pedís un cálculo o una proyección, puede haber errores pequeños que son difíciles de notar porque el resultado "se ve" razonable.</p>
+        <div class="prompt-row">
+          <div class="prompt prompt-good"><span class="mark">✓</span> Tratá a Copilot como un asistente que te da un punto de partida, no como la respuesta final. Siempre revisá los números importantes antes de usarlos.</div>
+        </div>
+      </div>
+
+      <div class="cell-card">
+        <span class="cell-ref">A7</span>
+        <h3>2. Le cuesta el formato condicional con varias condiciones a la vez</h3>
+        <p>Si le pedís algo simple, como resaltar en rojo los valores negativos, lo va a hacer sin drama. Pero si le pedís algo con varias condiciones juntas — por ejemplo, resaltar filas de un departamento específico, con un porcentaje negativo y de un vendedor puntual — ahí es más probable que se equivoque o directamente no lo logre.</p>
+        <div class="prompt-row">
+          <div class="prompt prompt-bad"><span class="mark">✕</span> "Resaltá las filas donde el departamento sea Ventas, el cambio sea negativo y el vendedor sea Juan."</div>
+          <div class="prompt prompt-good"><span class="mark">✓</span> "Resaltá en rojo los valores negativos de la columna Cambio." <em style="color:var(--ink-soft); font-style:normal;">(una condición por vez)</em></div>
+        </div>
+      </div>
+
+      <div class="cell-card">
+        <span class="cell-ref">A8</span>
+        <h3>3. Se pone lento (o directamente falla) con tablas muy grandes</h3>
+        <p>Cuanto más grande sea tu tabla, más puede tardar Copilot en responder — a veces unos segundos, a veces bastante más. Si tu tabla tiene demasiadas filas y columnas, puede llegar a trabarse o directamente no darte una respuesta útil.</p>
+        <div class="prompt-row">
+          <div class="prompt prompt-good"><span class="mark">✓</span> Si trabajás con una base de datos enorme, filtrala o dividila en partes más chicas antes de pedirle algo a Copilot. Vas a tener mejores resultados.</div>
+        </div>
+      </div>
+
+      <div class="cell-card">
+        <span class="cell-ref">A9</span>
+        <h3>4. No puede buscar información fuera de tu archivo</h3>
+        <p>Copilot solo "sabe" lo que hay dentro del archivo que tenés abierto. No puede navegar por internet, no puede consultar otras bases de datos y no puede leer archivos que no estén abiertos. Si le preguntás algo que no está en tu planilla — como una cotización actual o una noticia — no va a poder responderte.</p>
+        <div class="prompt-row">
+          <div class="prompt prompt-good"><span class="mark">✓</span> Si necesitás un dato externo (una fecha, un precio, una tasa), buscalo vos y agregalo a la planilla. Recién ahí Copilot va a poder usarlo.</div>
+        </div>
+      </div>
+
+      <div class="update-box">
+        <span class="eyebrow">¿Siguen vigentes estos límites hoy?</span>
+        <p style="margin:0 0 10px; font-size:14px;">La tecnología de IA avanza rápido, así que vale la pena revisar cada tanto qué sigue siendo cierto y qué ya cambió:</p>
+        <ul>
+          <li><strong>Los errores van a seguir existiendo siempre.</strong> No es un límite técnico que se "arregle" con una actualización — es algo propio de cualquier IA. La regla de oro sigue siendo: revisá antes de confiar.</li>
+          <li><strong>El formato condicional complejo mejora, pero todavía no está resuelto.</strong> Copilot sigue sin poder crear reglas basadas en fórmulas avanzadas. Sí aparecieron novedades que ayudan: ahora se le pueden dejar "reglas guardadas" en lenguaje simple (por ejemplo, "siempre formateá la moneda sin decimales") para que no tengas que repetir el mismo pedido una y otra vez.</li>
+          <li><strong>El límite de tablas grandes se mantiene prácticamente igual:</strong> alrededor de dos millones de celdas como techo confiable. Si tu tabla es más grande, seguís necesitando filtrarla o dividirla.</li>
+          <li><strong>Sigue sin poder buscar información externa</strong> por sí mismo, salvo en cuentas empresariales especiales, que pueden conectarse a correos o documentos de trabajo — pero tampoco a internet.</li>
+        </ul>
+      </div>
+
+      <div class="prof-note">
+        <span class="prof-label">💡 Dato extra que quizás no esperabas</span>
+        <p>Copilot en Excel, hoy en día, tampoco puede crear ni ejecutar macros (esas "grabaciones" de acciones repetitivas que a veces se usan en Excel). Si tu trabajo depende de ese tipo de automatización, vas a necesitar otra herramienta o hacerlo de forma manual, al menos por ahora.</p>
       </div>
 
       <h2>Glosario rápido</h2>
@@ -471,7 +519,7 @@
       <div class="soon">
         <span class="tag">en construcción</span>
         <h1>Hoja 2</h1>
-        <p class="lede">Todavía no llegamos a este módulo. En cuanto avancemos, este espacio se completa con las notas correspondientes.</p>
+        <p class="lede">Todavía no llegamos a este módulo. En cuanto se agregue contenido, este espacio se completa con las notas correspondientes.</p>
       </div>
     </section>
 
@@ -480,12 +528,12 @@
       <div class="soon">
         <span class="tag">en construcción</span>
         <h1>Hoja 3</h1>
-        <p class="lede">Todavía no llegamos a este módulo. En cuanto avancemos, este espacio se completa con las notas correspondientes.</p>
+        <p class="lede">Todavía no llegamos a este módulo. En cuanto se agregue contenido, este espacio se completa con las notas correspondientes.</p>
       </div>
     </section>
 
     <footer class="page-footer">
-      Apuntes personales de acompañamiento a tu aprendizaje de <strong>Copilot en Excel</strong>. Este material es un resumen propio de repaso y no reemplaza el estudio original de cada tema.
+      Curso interactivo de Copilot para Excel, pensado para acompañarte paso a paso mientras aprendés a usar la IA dentro de tus propias planillas.
     </footer>
   </main>
 </div>
@@ -495,31 +543,38 @@
   const panels = document.querySelectorAll('.panel');
   const fbRef = document.getElementById('fbRef');
   const fbText = document.getElementById('fbText');
+  const startBtn = document.getElementById('startBtn');
 
   const refMap = { inicio: 'A1', modulo1: 'B1', modulo2: 'C1', modulo3: 'D1' };
   const titleMap = {
-    inicio: 'Bienvenida al cuaderno',
+    inicio: 'Bienvenida al curso',
     modulo1: 'Los 5 principios para prompts efectivos',
     modulo2: 'Próximo módulo — todavía no disponible',
     modulo3: 'Próximo módulo — todavía no disponible'
   };
 
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      const target = tab.getAttribute('data-target');
-
-      tabs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
-      tab.classList.add('active');
-      tab.setAttribute('aria-selected', 'true');
-
-      panels.forEach(p => { p.hidden = (p.id !== target); });
-
-      fbRef.textContent = refMap[target] || 'A1';
-      fbText.textContent = titleMap[target] || '';
-
-      document.querySelector('.sheet').scrollTo({ top: 0, behavior: 'smooth' });
+  function activateTab(target){
+    tabs.forEach(t => {
+      const isMatch = t.getAttribute('data-target') === target;
+      t.classList.toggle('active', isMatch);
+      t.setAttribute('aria-selected', isMatch ? 'true' : 'false');
     });
+
+    panels.forEach(p => { p.hidden = (p.id !== target); });
+
+    fbRef.textContent = refMap[target] || 'A1';
+    fbText.textContent = titleMap[target] || '';
+
+    document.querySelector('.sheet').scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => activateTab(tab.getAttribute('data-target')));
   });
+
+  if (startBtn){
+    startBtn.addEventListener('click', () => activateTab('modulo1'));
+  }
 </script>
 
 </body>
