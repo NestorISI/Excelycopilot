@@ -340,54 +340,6 @@
     border-radius: 12px; padding: 4px 10px; white-space: nowrap;
   }
 
-  /* tabla de práctica */
-  .practice-table-wrap{
-    overflow-x: auto;
-    margin: 16px 0 24px;
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-  }
-  table.practice-table{
-    border-collapse: collapse;
-    width: 100%;
-    font-size: 13px;
-    background: var(--cell);
-  }
-  table.practice-table th, table.practice-table td{
-    padding: 8px 12px;
-    text-align: left;
-    border-bottom: 1px solid var(--line);
-    white-space: nowrap;
-  }
-  table.practice-table th{
-    font-family: var(--mono);
-    font-size: 11.5px;
-    text-transform: uppercase;
-    letter-spacing: .03em;
-    color: var(--green-deep);
-    background: var(--blue-tint);
-  }
-  table.practice-table tr:last-child td{ border-bottom: none; }
-
-  /* pregunta -> respuesta */
-  .qa-list{ display:flex; flex-direction:column; gap: 10px; margin: 14px 0 8px; }
-  .qa-item{
-    background: var(--cell);
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    padding: 12px 14px;
-    display:grid;
-    grid-template-columns: 1fr auto;
-    gap: 10px;
-    align-items:center;
-  }
-  .qa-item .qa-prompt{ font-family: var(--mono); font-size: 13px; color: var(--ink); }
-  .qa-item .qa-answer{
-    font-family: var(--sans); font-size: 12.5px; font-weight: 700;
-    color: var(--green-deep); background: #E9F2EC;
-    border-radius: 12px; padding: 4px 10px; white-space: nowrap;
-  }
-
   /* placeholder de parte sin contenido todavía */
   .soon{
     display:flex; flex-direction:column; align-items:flex-start; gap: 10px;
@@ -717,21 +669,28 @@
       </div>
 
       <h2>Practicá con una planilla de ejemplo</h2>
-      <p>Para esta hoja vas a trabajar con una planilla ficticia de ventas de una empresa. Tiene estas columnas:</p>
+      <p>Para esta hoja vas a necesitar una planilla ficticia de ventas con estas columnas: <strong>Mes, Región, Producto, Vendedor, Unidades, Precio Unitario y Total</strong>. Si no tenés una a mano, pedile a Copilot que te la arme con este prompt:</p>
+
+      <div class="prompt-row">
+        <div class="prompt prompt-good"><span class="mark">✓</span> "Creá una tabla de ventas ficticia con las columnas Mes, Región, Producto, Vendedor, Unidades, Precio Unitario y Total. Usá 3 meses del primer trimestre, 3 regiones, 4 productos y 4 vendedores distintos, con unidades entre 3 y 12 por fila. Calculá el Total como Unidades por Precio Unitario. Necesito unas 25 a 30 filas."</div>
+      </div>
+
+      <p style="font-size:13.5px; color:var(--ink-soft);">Copilot va a inventar sus propios nombres de vendedores, productos y regiones — no van a coincidir con los de nadie más, y no hace falta que coincidan con los de este ejemplo. Lo importante es que la estructura de columnas sea esa. A modo ilustrativo, así podría verse:</p>
+
       <div class="practice-table-wrap">
         <table class="practice-table">
           <thead>
             <tr><th>Mes</th><th>Región</th><th>Producto</th><th>Vendedor</th><th>Unidades</th><th>Precio Unitario</th><th>Total</th></tr>
           </thead>
           <tbody>
-            <tr><td>Enero</td><td>Norte</td><td>Laptop</td><td>Carlos</td><td>5</td><td>$1.200</td><td>$6.000</td></tr>
-            <tr><td>Febrero</td><td>Norte</td><td>Laptop</td><td>María</td><td>7</td><td>$1.200</td><td>$8.400</td></tr>
-            <tr><td>Marzo</td><td>Centro</td><td>Monitor</td><td>Lucía</td><td>7</td><td>$350</td><td>$2.450</td></tr>
+            <tr><td>Enero</td><td>Litoral</td><td>Auriculares</td><td>Bruno</td><td>6</td><td>$800</td><td>$4.800</td></tr>
+            <tr><td>Febrero</td><td>Cuyo</td><td>Impresora</td><td>Renata</td><td>4</td><td>$2.100</td><td>$8.400</td></tr>
+            <tr><td>Marzo</td><td>Patagonia</td><td>Mochila</td><td>Ignacio</td><td>9</td><td>$450</td><td>$4.050</td></tr>
             <tr><td>…</td><td>…</td><td>…</td><td>…</td><td>…</td><td>…</td><td>…</td></tr>
           </tbody>
         </table>
       </div>
-      <p style="font-size:13.5px; color:var(--ink-soft);">Armá una planilla parecida (o usá una tuya con esta misma estructura: al menos una columna de fecha/período, una de categoría, una de responsable y una de monto) y probá estas cuatro preguntas puntuales, una por una:</p>
+      <p style="font-size:13.5px; color:var(--ink-soft);">Con tu planilla lista (guardada en OneDrive para poder usar Copilot), probá estas cuatro preguntas puntuales, una por una:</p>
 
       <div class="qa-list">
         <div class="qa-item">
