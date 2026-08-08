@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cuaderno_Copilot.xlsx — Apuntes del curso de Federico Garay</title>
+<title>Cuaderno_Copilot.xlsx — Apuntes de Excel con IA</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -113,19 +113,17 @@
   }
   .tab[disabled] .lock{ font-size: 11px; }
 
-  .course-link{
+  .sidebar-note{
     margin-top: auto;
     display: block;
     font-family: var(--mono);
     font-size: 12.5px;
-    text-decoration: none;
-    color: var(--green-deep);
+    color: var(--ink-soft);
     border-top: 1px dashed var(--line);
     padding-top: 16px;
     line-height: 1.5;
   }
-  .course-link:hover{ color: var(--green); }
-  .course-link strong{ display:block; font-family: var(--sans); font-size: 13px; margin-bottom: 4px; }
+  .sidebar-note strong{ display:block; font-family: var(--sans); font-size: 13px; margin-bottom: 4px; color: var(--ink); }
 
   /* ---------- MAIN SHEET ---------- */
   .sheet{ padding: 0 0 60px; min-width: 0; }
@@ -186,7 +184,7 @@
   .step h4{ margin: 6px 0 4px; font-size: 14.5px; font-family: var(--sans); }
   .step p{ margin:0; font-size: 13.5px; color: var(--ink-soft); }
 
-  /* professor callout - reused motif */
+  /* callout - reused motif */
   .prof-note{
     background: var(--blue-tint);
     border-left: 3px solid var(--blue);
@@ -288,7 +286,7 @@
     .sheet-tabs{ flex-direction: row; }
     .tab{ clip-path:none; white-space: nowrap; border-radius: var(--radius); border:1px solid transparent; }
     .tab.active{ border: 1px solid var(--line); }
-    .course-link{ display:none; }
+    .sidebar-note{ display:none; }
     .panel{ padding: 28px 18px 0; }
     .steps{ grid-template-columns: 1fr; }
     .glossary{ grid-template-columns: 1fr; }
@@ -307,21 +305,21 @@
       <span class="logo-fx">fx</span>
       <div>
         <p class="wb-title">Cuaderno_Copilot.xlsx</p>
-        <p class="wb-sub">apuntes del alumno</p>
+        <p class="wb-sub">apuntes personales</p>
       </div>
     </div>
 
     <nav class="sheet-tabs" role="tablist" aria-label="Módulos del cuaderno">
       <button class="tab active" data-target="inicio" role="tab" aria-selected="true">Inicio</button>
       <button class="tab" data-target="modulo1" role="tab" aria-selected="false">Hoja 1 · Prompting</button>
-      <button class="tab" data-target="modulo2" role="tab" aria-selected="false">Hoja 2 · próxima clase</button>
-      <button class="tab" data-target="modulo3" role="tab" aria-selected="false">Hoja 3 · próxima clase</button>
+      <button class="tab" data-target="modulo2" role="tab" aria-selected="false">Hoja 2 · próximo módulo</button>
+      <button class="tab" data-target="modulo3" role="tab" aria-selected="false">Hoja 3 · próximo módulo</button>
     </nav>
 
-    <a class="course-link" href="https://www.udemy.com/course/copilot-excel/?couponCode=UDEAFFMX0826" target="_blank" rel="noopener">
-      <strong>↗ Ir al curso completo</strong>
-      Copilot para Excel — Federico Garay, en Udemy
-    </a>
+    <div class="sidebar-note">
+      <strong>Sobre este cuaderno</strong>
+      Apuntes personales de aprendizaje sobre Copilot en Excel, organizados como una hoja de cálculo.
+    </div>
   </aside>
 
   <main class="sheet">
@@ -333,21 +331,21 @@
 
     <!-- ===================== INICIO ===================== -->
     <section id="inicio" class="panel" role="tabpanel">
-      <span class="eyebrow">Cuaderno de apuntes — no oficial</span>
-      <h1>Tus notas del curso de Copilot para Excel</h1>
-      <p class="lede">Este cuaderno acompaña el curso <strong>"Copilot en Excel"</strong> de Federico Garay. Acá vas a encontrar lo que vemos en cada clase, reorganizado, explicado con tus propias palabras y con ejercicios cortos para fijarlo — pero no reemplaza la clase en sí.</p>
+      <span class="eyebrow">Cuaderno de apuntes personal</span>
+      <h1>Tus notas sobre Copilot para Excel</h1>
+      <p class="lede">Este cuaderno acompaña tu proceso de aprendizaje sobre <strong>Copilot en Excel</strong>. Acá vas a encontrar lo que vas viendo en cada módulo, reorganizado, explicado con tus propias palabras y con ejercicios cortos para fijarlo — pero no reemplaza el estudio original de cada tema.</p>
 
       <div class="prof-note">
-        <span class="prof-label">🎓 Por qué seguir viendo las clases</span>
-        <p>Estas páginas son un resumen de repaso. Federico muestra la pantalla en vivo, corrige errores comunes en el momento y da contexto de casos reales que un resumen escrito no puede capturar. La idea es: <strong>primero la clase, después este cuaderno para repasar y practicar.</strong></p>
+        <span class="prof-label">🎓 Por qué seguir profundizando en cada tema</span>
+        <p>Estas páginas son un resumen de repaso. Ver el material original en vivo o en detalle te permite notar errores comunes en el momento y entender el contexto de casos reales que un resumen escrito no puede capturar. La idea es: <strong>primero el aprendizaje a fondo, después este cuaderno para repasar y practicar.</strong></p>
       </div>
 
       <h2>Cómo usar este cuaderno</h2>
       <div class="steps">
         <div class="step">
           <span class="num">01</span>
-          <h4>Mirá la clase</h4>
-          <p>Completa la lección en Udemy sin pausar para tomar apuntes — solo prestá atención.</p>
+          <h4>Estudiá el tema</h4>
+          <p>Completá la lección sin pausar para tomar apuntes — solo prestá atención.</p>
         </div>
         <div class="step">
           <span class="num">02</span>
@@ -360,15 +358,13 @@
           <p>Resolvé el mini-ejercicio de cada sección con un archivo real, no solo leyendo.</p>
         </div>
       </div>
-
-      <p style="margin-top:32px;"><a class="btn" href="https://www.udemy.com/course/copilot-excel/?couponCode=UDEAFFMX0826" target="_blank" rel="noopener">Ver el curso en Udemy ↗</a></p>
     </section>
 
     <!-- ===================== MODULO 1 ===================== -->
     <section id="modulo1" class="panel" role="tabpanel" hidden>
       <span class="eyebrow">Hoja 1</span>
       <h1>Los 5 principios para prompts efectivos en Copilot</h1>
-      <p class="lede">Cinco reglas que Federico enseña para escribir instrucciones que Copilot entienda bien a la primera, en lugar de tener que corregir el resultado varias veces.</p>
+      <p class="lede">Cinco reglas para escribir instrucciones que Copilot entienda bien a la primera, en lugar de tener que corregir el resultado varias veces.</p>
 
       <div class="cell-card">
         <span class="cell-ref">A1</span>
@@ -436,12 +432,12 @@
       </div>
 
       <div class="prof-note">
-        <span class="prof-label">🎓 Lo que la clase te da y esto no</span>
-        <p>Federico muestra en vivo qué pasa cuando Copilot interpreta mal un prompt ambiguo y cómo corregirlo sobre la marcha — ese proceso de prueba y error es más valioso visto en la clase que leído acá.</p>
+        <span class="prof-label">🎓 Lo que el estudio a fondo te da y esto no</span>
+        <p>Ver en vivo qué pasa cuando Copilot interpreta mal un prompt ambiguo y cómo corregirlo sobre la marcha es más valioso que leerlo en un resumen — ese proceso de prueba y error conviene experimentarlo de primera mano.</p>
       </div>
 
       <div class="update-box">
-        <span class="eyebrow">Dato extra 2026 (no visto necesariamente en la clase)</span>
+        <span class="eyebrow">Dato extra 2026</span>
         <ul>
           <li>Copilot funciona mucho mejor —y en algunos casos solo funciona— si tus datos están convertidos en <strong>Tabla de Excel</strong> (Insertar → Tabla), no en un rango suelto de celdas.</li>
           <li>Desde 2026, muchas versiones de Copilot incorporan un <strong>modo Agente</strong>, que permite encadenar varios pasos a partir de una sola instrucción más elaborada. Aun así, para aprender a prompt-ear bien, conviene seguir practicando "una cosa por vez" primero.</li>
@@ -475,8 +471,7 @@
       <div class="soon">
         <span class="tag">en construcción</span>
         <h1>Hoja 2</h1>
-        <p class="lede">Todavía no llegamos a esta clase. En cuanto avancemos, este espacio se completa con las notas correspondientes.</p>
-        <a class="btn btn-ghost" href="https://www.udemy.com/course/copilot-excel/?couponCode=UDEAFFMX0826" target="_blank" rel="noopener">Continuar el curso en Udemy ↗</a>
+        <p class="lede">Todavía no llegamos a este módulo. En cuanto avancemos, este espacio se completa con las notas correspondientes.</p>
       </div>
     </section>
 
@@ -485,13 +480,12 @@
       <div class="soon">
         <span class="tag">en construcción</span>
         <h1>Hoja 3</h1>
-        <p class="lede">Todavía no llegamos a esta clase. En cuanto avancemos, este espacio se completa con las notas correspondientes.</p>
-        <a class="btn btn-ghost" href="https://www.udemy.com/course/copilot-excel/?couponCode=UDEAFFMX0826" target="_blank" rel="noopener">Continuar el curso en Udemy ↗</a>
+        <p class="lede">Todavía no llegamos a este módulo. En cuanto avancemos, este espacio se completa con las notas correspondientes.</p>
       </div>
     </section>
 
     <footer class="page-footer">
-      Apuntes personales de acompañamiento al curso <strong>"Copilot en Excel"</strong> de Federico Garay (Escuela Directa) en Udemy. Este material no es oficial del curso ni reemplaza las clases originales.
+      Apuntes personales de acompañamiento a tu aprendizaje de <strong>Copilot en Excel</strong>. Este material es un resumen propio de repaso y no reemplaza el estudio original de cada tema.
     </footer>
   </main>
 </div>
@@ -506,8 +500,8 @@
   const titleMap = {
     inicio: 'Bienvenida al cuaderno',
     modulo1: 'Los 5 principios para prompts efectivos',
-    modulo2: 'Próxima clase — todavía no disponible',
-    modulo3: 'Próxima clase — todavía no disponible'
+    modulo2: 'Próximo módulo — todavía no disponible',
+    modulo3: 'Próximo módulo — todavía no disponible'
   };
 
   tabs.forEach(tab => {
