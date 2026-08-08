@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Copilot para Excel — Curso interactivo</title>
+<title>Excel_con_Copilot.xlsx — Guía del curso</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -59,7 +59,7 @@
     padding: 28px 20px;
     display: flex;
     flex-direction: column;
-    gap: 28px;
+    gap: 26px;
     position: sticky;
     top: 0;
     height: 100vh;
@@ -80,38 +80,39 @@
   .wb-title{ margin:0; font-family: var(--mono); font-size: 13px; font-weight: 700; }
   .wb-sub{ margin:2px 0 0; font-size: 12px; color: var(--ink-soft); }
 
-  .sheet-tabs{
+  .part-tabs{
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 8px;
   }
-  .tab{
+  .part-eyebrow{
+    font-family: var(--mono); font-size: 11px; letter-spacing: .04em; text-transform: uppercase;
+    color: var(--ink-soft); margin: 0 0 2px;
+  }
+  .part-tab{
     font-family: var(--sans);
-    font-size: 13.5px;
-    font-weight: 600;
+    font-size: 14px;
+    font-weight: 700;
     text-align: left;
     color: var(--ink-soft);
-    background: transparent;
-    border: 1px solid transparent;
-    border-radius: var(--radius) var(--radius) 0 0;
-    padding: 10px 12px;
-    cursor: pointer;
-    position: relative;
-    clip-path: polygon(0 0, 100% 0, 92% 100%, 8% 100%);
-  }
-  .tab:hover:not([disabled]){ background: rgba(47,107,79,0.08); color: var(--ink); }
-  .tab.active{
     background: var(--paper);
-    color: var(--green-deep);
     border: 1px solid var(--line);
-    border-bottom: none;
+    border-radius: var(--radius);
+    padding: 12px 14px;
+    cursor: pointer;
+    line-height: 1.35;
   }
-  .tab[disabled]{
-    cursor: default;
-    color: #a89f8c;
-    font-weight: 500;
+  .part-tab .part-num{
+    display:block; font-family: var(--mono); font-weight: 700; font-size: 11px;
+    color: var(--green); margin-bottom: 3px;
   }
-  .tab[disabled] .lock{ font-size: 11px; }
+  .part-tab:hover:not(.active){ border-color: var(--green); color: var(--ink); }
+  .part-tab.active{
+    background: var(--green-deep);
+    color: #fff;
+    border-color: var(--green-deep);
+  }
+  .part-tab.active .part-num{ color: #BFE3D0; }
 
   .sidebar-foot{
     margin-top: auto;
@@ -120,7 +121,7 @@
     color: var(--ink-soft);
     border-top: 1px dashed var(--line);
     padding-top: 16px;
-    line-height: 1.5;
+    line-height: 1.55;
   }
 
   /* ---------- MAIN SHEET ---------- */
@@ -144,6 +145,39 @@
   }
   .fb-icon{ font-family: var(--mono); font-style: italic; color: var(--ink-soft); font-size: 13px; }
   .fb-text{ font-family: var(--mono); font-size: 13px; color: var(--ink-soft); }
+
+  /* secondary tab strip = "hojas" dentro de una parte, como las pestañas reales de Excel */
+  .sheet-tabs-row{
+    display: flex;
+    gap: 4px;
+    padding: 10px 32px 0;
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+    position: sticky; top: 45px; z-index: 4;
+    overflow-x: auto;
+  }
+  .sheet-tabs-row[hidden]{ display:none; }
+  .htab{
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink-soft);
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: var(--radius) var(--radius) 0 0;
+    padding: 9px 16px;
+    cursor: pointer;
+    white-space: nowrap;
+    clip-path: polygon(0 0, 100% 0, 92% 100%, 8% 100%);
+  }
+  .htab:hover:not(.active){ background: rgba(47,107,79,0.08); color: var(--ink); }
+  .htab.active{
+    background: var(--cell);
+    color: var(--green-deep);
+    border: 1px solid var(--line);
+    border-bottom-color: var(--cell);
+    margin-bottom: -1px;
+  }
 
   .panel{ padding: 40px 32px 0; max-width: 780px; }
   .panel[hidden]{ display:none; }
@@ -182,7 +216,7 @@
   .step h4{ margin: 6px 0 4px; font-size: 14.5px; font-family: var(--sans); }
   .step p{ margin:0; font-size: 13.5px; color: var(--ink-soft); }
 
-  /* tip callout - reused motif */
+  /* callout del profesor - reutilizado como "consejo" a lo largo de la guía */
   .prof-note{
     background: var(--blue-tint);
     border-left: 3px solid var(--blue);
@@ -197,7 +231,7 @@
   }
   .prof-note p{ margin: 0; color: #24344f; }
 
-  /* cell cards for principles */
+  /* cell cards para principios */
   .cell-card{
     position: relative;
     background: var(--cell);
@@ -240,7 +274,7 @@
   }
   .exercise input[type=checkbox]:checked + span{ text-decoration: line-through; color: #9a9182; }
 
-  /* update box */
+  /* nota adicional */
   .update-box{
     border: 1px dashed var(--green);
     border-radius: var(--radius);
@@ -252,13 +286,13 @@
   .update-box ul{ margin: 8px 0 0; padding-left: 18px; }
   .update-box li{ margin-bottom: 6px; font-size: 14px; line-height: 1.55; }
 
-  /* glossary */
+  /* glosario */
   .glossary{ display:grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 16px 0 30px; }
   .gterm{ border-bottom: 1px solid var(--line); padding-bottom: 12px; }
   .gterm dt{ font-family: var(--mono); font-weight: 700; font-size: 13.5px; color: var(--green-deep); }
   .gterm dd{ margin: 4px 0 0; font-size: 13.5px; color: var(--ink-soft); line-height: 1.5; }
 
-  /* soon placeholder */
+  /* placeholder de parte sin contenido todavía */
   .soon{
     display:flex; flex-direction:column; align-items:flex-start; gap: 10px;
     padding: 50px 0;
@@ -277,14 +311,15 @@
   @media (max-width: 820px){
     .app{ grid-template-columns: 1fr; }
     .sidebar{
-      position: sticky; top:0; height: auto; flex-direction: row;
-      align-items: center; overflow-x: auto; padding: 14px 16px; gap: 16px;
+      position: sticky; top:0; height: auto;
+      overflow-x: auto; padding: 14px 16px; gap: 14px;
     }
     .sidebar-head{ flex-shrink:0; }
-    .sheet-tabs{ flex-direction: row; }
-    .tab{ clip-path:none; white-space: nowrap; border-radius: var(--radius); border:1px solid transparent; }
-    .tab.active{ border: 1px solid var(--line); }
+    .part-tabs{ flex-direction: row; }
+    .part-tab{ white-space: nowrap; }
     .sidebar-foot{ display:none; }
+    .formula-bar{ padding: 10px 18px; }
+    .sheet-tabs-row{ padding: 8px 18px 0; top: 41px; }
     .panel{ padding: 28px 18px 0; }
     .steps{ grid-template-columns: 1fr; }
     .glossary{ grid-template-columns: 1fr; }
@@ -302,61 +337,84 @@
     <div class="sidebar-head">
       <span class="logo-fx">fx</span>
       <div>
-        <p class="wb-title">Copilot_para_Excel.xlsx</p>
-        <p class="wb-sub">curso interactivo</p>
+        <p class="wb-title">Excel_con_Copilot.xlsx</p>
+        <p class="wb-sub">guía del curso</p>
       </div>
     </div>
 
-    <nav class="sheet-tabs" role="tablist" aria-label="Módulos del curso">
-      <button class="tab active" data-target="inicio" role="tab" aria-selected="true">Inicio</button>
-      <button class="tab" data-target="modulo1" role="tab" aria-selected="false">Hoja 1 · Prompting</button>
-      <button class="tab" data-target="modulo2" role="tab" aria-selected="false">Hoja 2 · próximamente</button>
-      <button class="tab" data-target="modulo3" role="tab" aria-selected="false">Hoja 3 · próximamente</button>
+    <nav class="part-tabs" role="tablist" aria-label="Partes del curso">
+      <span class="part-eyebrow">Partes del curso</span>
+      <button class="part-tab active" data-part="parte1" role="tab" aria-selected="true">
+        <span class="part-num">Parte 1</span>
+        Comenzando el uso de Copilot con Excel
+      </button>
+      <button class="part-tab" data-part="parte2" role="tab" aria-selected="false">
+        <span class="part-num">Parte 2</span>
+        Analiza tus datos con Copilot
+      </button>
     </nav>
 
-    <p class="sidebar-foot">Este cuaderno se va completando a medida que avanza el curso. Volvé cada tanto para ver las hojas nuevas.</p>
+    <p class="sidebar-foot">Esta guía se va completando a medida que avanza el curso. Cada parte se organiza en hojas cortas para que no tengas que scrollear de más.</p>
   </aside>
 
   <main class="sheet">
     <div class="formula-bar">
-      <span class="fb-ref" id="fbRef">A1</span>
+      <span class="fb-ref" id="fbRef">P1.A1</span>
       <span class="fb-icon">fx</span>
-      <span class="fb-text" id="fbText">Bienvenida al curso</span>
+      <span class="fb-text" id="fbText">Bienvenida</span>
     </div>
 
-    <!-- ===================== INICIO ===================== -->
-    <section id="inicio" class="panel" role="tabpanel">
-      <span class="eyebrow">Curso interactivo</span>
-      <h1>Copilot para Excel: llevá tus planillas a otro nivel con IA</h1>
-      <p class="lede">Este curso te acompaña paso a paso para que aprendas a usar Copilot dentro de Excel: cómo pedirle las cosas de forma correcta, qué puede hacer por vos, dónde todavía tiene límites y cómo sacarle el máximo provecho sin perder tiempo corrigiendo resultados.</p>
+    <!-- ===== hojas de la Parte 1 ===== -->
+    <nav class="sheet-tabs-row" id="tabsParte1" role="tablist" aria-label="Hojas — Parte 1">
+      <button class="htab active" data-sheet="p1-bienvenida">Bienvenida</button>
+      <button class="htab" data-sheet="p1-principios">Principios</button>
+      <button class="htab" data-sheet="p1-limites">Límites de Copilot</button>
+      <button class="htab" data-sheet="p1-glosario">Glosario</button>
+    </nav>
 
-      <h2>Cómo está pensado este curso</h2>
+    <!-- ===== hojas de la Parte 2 ===== -->
+    <nav class="sheet-tabs-row" id="tabsParte2" role="tablist" aria-label="Hojas — Parte 2" hidden>
+      <button class="htab active" data-sheet="p2-proximamente">En preparación</button>
+    </nav>
+
+    <!-- ===================== PARTE 1 · Bienvenida ===================== -->
+    <section id="p1-bienvenida" class="panel" role="tabpanel">
+      <span class="eyebrow">Parte 1 · Comenzando el uso de Copilot con Excel</span>
+      <h1>Tus primeros pasos con Copilot en Excel</h1>
+      <p class="lede">Esta guía te acompaña mientras aprendés a usar Copilot dentro de Excel. Vas a encontrar cada concepto explicado en lenguaje simple, con ejemplos de prompts comparados lado a lado y ejercicios cortos para fijarlo en tu propio archivo.</p>
+
+      <div class="prof-note">
+        <span class="prof-label">🎓 Por qué conviene practicar, no solo leer</span>
+        <p>Leer esta guía te da el mapa, pero Copilot se aprende de verdad cuando lo probás en un archivo real. Los errores que comete cuando un prompt es ambiguo son la mejor lección para entender cómo pedirle las cosas mejor la próxima vez.</p>
+      </div>
+
+      <h2>Cómo usar esta guía</h2>
       <div class="steps">
         <div class="step">
           <span class="num">01</span>
-          <h4>Recorré cada hoja</h4>
-          <p>Cada módulo desarrolla un tema puntual, con ejemplos concretos de cómo pedirle bien las cosas a Copilot.</p>
+          <h4>Leé el concepto</h4>
+          <p>Cada hoja explica una idea concreta, sin rodeos, antes de pedirte que escribas nada.</p>
         </div>
         <div class="step">
           <span class="num">02</span>
-          <h4>Probá los ejemplos</h4>
-          <p>Vas a ver comparaciones de prompts que funcionan mal y prompts que funcionan bien — probalos en tu propia planilla.</p>
+          <h4>Mirá el ejemplo comparado</h4>
+          <p>Vas a ver un prompt que falla al lado del prompt que sí funciona, para notar la diferencia.</p>
         </div>
         <div class="step">
           <span class="num">03</span>
-          <h4>Resolvé los ejercicios</h4>
-          <p>Cada sección incluye una actividad corta para que fijes lo aprendido con un archivo real, no solo leyendo.</p>
+          <h4>Practicá en tu Excel</h4>
+          <p>Resolvé el mini-ejercicio de cada hoja con un archivo real, no solo leyendo la pantalla.</p>
         </div>
       </div>
 
-      <p style="margin-top:32px;"><button class="btn" id="startBtn" type="button">Empezar por la Hoja 1 →</button></p>
+      <p style="margin-top:32px;"><button class="btn" data-goto="p1-principios">Empezar con los 5 principios de prompting →</button></p>
     </section>
 
-    <!-- ===================== MODULO 1 ===================== -->
-    <section id="modulo1" class="panel" role="tabpanel" hidden>
-      <span class="eyebrow">Hoja 1</span>
+    <!-- ===================== PARTE 1 · Principios ===================== -->
+    <section id="p1-principios" class="panel" role="tabpanel" hidden>
+      <span class="eyebrow">Parte 1 · Hoja 2</span>
       <h1>Los 5 principios para prompts efectivos en Copilot</h1>
-      <p class="lede">Cinco reglas clave para escribir instrucciones que Copilot entienda bien a la primera, en lugar de tener que corregir el resultado varias veces.</p>
+      <p class="lede">Cinco reglas para escribir instrucciones que Copilot entienda bien a la primera, en lugar de tener que corregir el resultado varias veces.</p>
 
       <div class="cell-card">
         <span class="cell-ref">A1</span>
@@ -424,20 +482,26 @@
       </div>
 
       <div class="prof-note">
-        <span class="prof-label">💡 Tip</span>
-        <p>Practicá estos cinco principios directamente en tus propios archivos. Cuanto más los apliques, más rápido se vuelven un hábito y menos vas a tener que corregir los resultados de Copilot.</p>
+        <span class="prof-label">🎓 Si el resultado no es el esperado</span>
+        <p>Cuando Copilot interpreta mal un prompt ambiguo, no hace falta empezar de cero: pedile que ajuste solo la parte que falló, señalando exactamente qué tiene que cambiar.</p>
       </div>
 
       <div class="update-box">
-        <span class="eyebrow">Dato extra 2026</span>
+        <span class="eyebrow">Para tener en cuenta</span>
         <ul>
           <li>Copilot funciona mucho mejor —y en algunos casos solo funciona— si tus datos están convertidos en <strong>Tabla de Excel</strong> (Insertar → Tabla), no en un rango suelto de celdas.</li>
-          <li>Desde 2026, muchas versiones de Copilot incorporan un <strong>modo Agente</strong>, que permite encadenar varios pasos a partir de una sola instrucción más elaborada. Aun así, para aprender a prompt-ear bien, conviene seguir practicando "una cosa por vez" primero.</li>
-          <li>Copilot también puede "anclarse" a otras fuentes además de la hoja activa (por ejemplo, listas de SharePoint), dependiendo de tu plan de Microsoft 365.</li>
+          <li>Desde 2026, muchas versiones de Copilot incorporan un <strong>modo Agente</strong>, que permite encadenar varios pasos a partir de una sola instrucción más elaborada. Aun así, para aprender a prompt-ear bien conviene seguir practicando "una cosa por vez" primero.</li>
+          <li>Copilot también puede "anclarse" a otras fuentes además de la hoja activa (por ejemplo, listas de SharePoint), dependiendo del plan de Microsoft 365 que uses.</li>
         </ul>
       </div>
 
-      <h2>Los límites de Copilot (para que no te frustres)</h2>
+      <p style="margin-top:12px;"><button class="btn btn-ghost" data-goto="p1-limites">Ver los límites de Copilot →</button></p>
+    </section>
+
+    <!-- ===================== PARTE 1 · Límites de Copilot ===================== -->
+    <section id="p1-limites" class="panel" role="tabpanel" hidden>
+      <span class="eyebrow">Parte 1 · Hoja 3</span>
+      <h1>Los límites de Copilot (para que no te frustres)</h1>
       <p class="lede">Conocer hasta dónde llega Copilot es tan importante como saber pedirle cosas. Si no conocés sus límites, vas a terminar pidiéndole cosas que no puede hacer, vas a pensar que "no sirve" y te vas a frustrar sin necesidad. Acá tenés los cuatro límites más importantes que tenés que tener siempre presentes.</p>
 
       <div class="cell-card">
@@ -493,7 +557,14 @@
         <p>Copilot en Excel, hoy en día, tampoco puede crear ni ejecutar macros (esas "grabaciones" de acciones repetitivas que a veces se usan en Excel). Si tu trabajo depende de ese tipo de automatización, vas a necesitar otra herramienta o hacerlo de forma manual, al menos por ahora.</p>
       </div>
 
-      <h2>Glosario rápido</h2>
+      <p style="margin-top:12px;"><button class="btn btn-ghost" data-goto="p1-glosario">Ver el glosario de esta parte →</button></p>
+    </section>
+
+    <!-- ===================== PARTE 1 · Glosario ===================== -->
+    <section id="p1-glosario" class="panel" role="tabpanel" hidden>
+      <span class="eyebrow">Parte 1 · Hoja 4</span>
+      <h1>Glosario rápido</h1>
+      <p class="lede">Los términos de esta parte, para tener a mano mientras practicás.</p>
       <dl class="glossary">
         <div class="gterm">
           <dt>Prompt</dt>
@@ -512,69 +583,99 @@
           <dd>Función que permite que Copilot resuelva varios pasos encadenados a partir de una sola instrucción.</dd>
         </div>
       </dl>
+
+      <p style="margin-top:12px;"><button class="btn" data-goto-part="parte2">Continuar a la Parte 2 →</button></p>
     </section>
 
-    <!-- ===================== MODULO 2 (placeholder) ===================== -->
-    <section id="modulo2" class="panel" role="tabpanel" hidden>
+    <!-- ===================== PARTE 2 (placeholder) ===================== -->
+    <section id="p2-proximamente" class="panel" role="tabpanel" hidden>
+      <span class="eyebrow">Parte 2 · Analiza tus datos con Copilot</span>
       <div class="soon">
-        <span class="tag">en construcción</span>
-        <h1>Hoja 2</h1>
-        <p class="lede">Todavía no llegamos a este módulo. En cuanto se agregue contenido, este espacio se completa con las notas correspondientes.</p>
-      </div>
-    </section>
-
-    <!-- ===================== MODULO 3 (placeholder) ===================== -->
-    <section id="modulo3" class="panel" role="tabpanel" hidden>
-      <div class="soon">
-        <span class="tag">en construcción</span>
-        <h1>Hoja 3</h1>
-        <p class="lede">Todavía no llegamos a este módulo. En cuanto se agregue contenido, este espacio se completa con las notas correspondientes.</p>
+        <span class="tag">en preparación</span>
+        <h1>Esta parte todavía se está armando</h1>
+        <p class="lede">A medida que avance el curso, esta parte se va a completar con el contenido de <strong>Analiza tus datos con Copilot</strong>, organizado en hojas cortas igual que la Parte 1.</p>
+        <button class="btn btn-ghost" data-goto-part="parte1">← Volver a la Parte 1</button>
       </div>
     </section>
 
     <footer class="page-footer">
-      Curso interactivo de Copilot para Excel, pensado para acompañarte paso a paso mientras aprendés a usar la IA dentro de tus propias planillas.
+      Material didáctico del curso, organizado como un libro de Excel: partes que agrupan hojas cortas para practicar sin perder de vista el contexto.
     </footer>
   </main>
 </div>
 
 <script>
-  const tabs = document.querySelectorAll('.tab[data-target]');
+  // ---- estructura de partes y hojas ----
+  const parts = {
+    parte1: { sheets: ['p1-bienvenida', 'p1-principios', 'p1-limites', 'p1-glosario'], tabsRow: 'tabsParte1' },
+    parte2: { sheets: ['p2-proximamente'], tabsRow: 'tabsParte2' }
+  };
+  const sheetMeta = {
+    'p1-bienvenida':  { ref: 'P1.A1', title: 'Bienvenida' },
+    'p1-principios':  { ref: 'P1.B1', title: 'Los 5 principios de prompting' },
+    'p1-limites':     { ref: 'P1.C1', title: 'Los límites de Copilot' },
+    'p1-glosario':    { ref: 'P1.D1', title: 'Glosario rápido' },
+    'p2-proximamente':{ ref: 'P2.A1', title: 'Parte en preparación' }
+  };
+
+  const partTabs = document.querySelectorAll('.part-tab[data-part]');
+  const allSheetTabsRows = document.querySelectorAll('.sheet-tabs-row');
   const panels = document.querySelectorAll('.panel');
   const fbRef = document.getElementById('fbRef');
   const fbText = document.getElementById('fbText');
-  const startBtn = document.getElementById('startBtn');
 
-  const refMap = { inicio: 'A1', modulo1: 'B1', modulo2: 'C1', modulo3: 'D1' };
-  const titleMap = {
-    inicio: 'Bienvenida al curso',
-    modulo1: 'Los 5 principios para prompts efectivos',
-    modulo2: 'Próximo módulo — todavía no disponible',
-    modulo3: 'Próximo módulo — todavía no disponible'
-  };
+  let activePart = 'parte1';
 
-  function activateTab(target){
-    tabs.forEach(t => {
-      const isMatch = t.getAttribute('data-target') === target;
-      t.classList.toggle('active', isMatch);
-      t.setAttribute('aria-selected', isMatch ? 'true' : 'false');
+  function showSheet(sheetId){
+    panels.forEach(p => { p.hidden = (p.id !== sheetId); });
+
+    const part = Object.keys(parts).find(k => parts[k].sheets.includes(sheetId));
+    if (part) setActivePart(part, sheetId, false);
+
+    document.querySelectorAll('.htab').forEach(t => {
+      const isActive = t.dataset.sheet === sheetId;
+      t.classList.toggle('active', isActive);
     });
 
-    panels.forEach(p => { p.hidden = (p.id !== target); });
-
-    fbRef.textContent = refMap[target] || 'A1';
-    fbText.textContent = titleMap[target] || '';
+    const meta = sheetMeta[sheetId];
+    if (meta){ fbRef.textContent = meta.ref; fbText.textContent = meta.title; }
 
     document.querySelector('.sheet').scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => activateTab(tab.getAttribute('data-target')));
+  function setActivePart(partKey, sheetToShow, scroll = true){
+    activePart = partKey;
+
+    partTabs.forEach(t => {
+      const isActive = t.dataset.part === partKey;
+      t.classList.toggle('active', isActive);
+      t.setAttribute('aria-selected', isActive ? 'true' : 'false');
+    });
+
+    allSheetTabsRows.forEach(row => { row.hidden = (row.id !== parts[partKey].tabsRow); });
+
+    const target = sheetToShow || parts[partKey].sheets[0];
+    if (scroll) showSheet(target);
+  }
+
+  partTabs.forEach(tab => {
+    tab.addEventListener('click', () => setActivePart(tab.dataset.part));
   });
 
-  if (startBtn){
-    startBtn.addEventListener('click', () => activateTab('modulo1'));
-  }
+  document.querySelectorAll('.htab[data-sheet]').forEach(tab => {
+    tab.addEventListener('click', () => showSheet(tab.dataset.sheet));
+  });
+
+  document.querySelectorAll('[data-goto]').forEach(btn => {
+    btn.addEventListener('click', () => showSheet(btn.dataset.goto));
+  });
+
+  document.querySelectorAll('[data-goto-part]').forEach(btn => {
+    btn.addEventListener('click', () => setActivePart(btn.dataset.gotoPart));
+  });
+
+  // estado inicial
+  setActivePart('parte1', 'p1-bienvenida');
 </script>
 
 </body>
