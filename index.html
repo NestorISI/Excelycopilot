@@ -744,25 +744,37 @@
       <h2>¿Qué es una "pregunta puntual"?</h2>
       <p>Una pregunta puntual es la que tiene una respuesta concreta: un número, un nombre o una fecha. "¿Cuál fue el mes con más ventas?", "¿cuántas unidades vendimos?" o "¿quién fue el mejor vendedor?" son preguntas puntuales. Antes de Copilot, este tipo de respuestas requerían fórmulas como <code>MAX</code>, <code>MIN</code>, <code>SUMA</code>, <code>CONTAR</code> o <code>PROMEDIO</code>, a veces combinadas entre sí. Ahora simplemente las preguntás en lenguaje natural.</p>
 
-      <div class="cell-card">
-        <span class="cell-ref">B1</span>
-        <h3>1. Copilot decide solo si necesita tocar tu hoja</h3>
-        <p>Hoy ya no elegís manualmente entre "modo chat" y "modo agente": es una sola conversación. Le hacés una pregunta puntual y Copilot responde; si para llegar a esa respuesta necesita hacer un cálculo intermedio, puede crear por su cuenta un pequeño conjunto de datos auxiliar en la hoja para mostrarte cómo llegó al resultado. Vos no activás nada aparte, simplemente sucede cuando hace falta.</p>
-        <div class="prompt-row">
-          <div class="prompt prompt-good"><span class="mark">✓</span> Si preferís que no toque tu planilla para nada, decíselo en el mismo prompt: "respondeme sin modificar la hoja". Si no te molesta el dato auxiliar, dejalo trabajar como le resulte más preciso.</div>
+      <div class="accordion-group" id="accordion-pregunta-datos">
+        <div class="cell-card accordion-card">
+          <span class="cell-ref">B1</span>
+          <button class="accordion-trigger" type="button" aria-expanded="false" aria-controls="acc-pregunta-datos-1">
+            <h3>1. Copilot decide solo si necesita tocar tu hoja</h3>
+            <span class="chev" aria-hidden="true">▸</span>
+          </button>
+          <div class="accordion-body" id="acc-pregunta-datos-1" hidden>
+            <p>Hoy ya no elegís manualmente entre "modo chat" y "modo agente": es una sola conversación. Le hacés una pregunta puntual y Copilot responde; si para llegar a esa respuesta necesita hacer un cálculo intermedio, puede crear por su cuenta un pequeño conjunto de datos auxiliar en la hoja para mostrarte cómo llegó al resultado. Vos no activás nada aparte, simplemente sucede cuando hace falta.</p>
+            <div class="prompt-row">
+              <div class="prompt prompt-good"><span class="mark">✓</span> Si preferís que no toque tu planilla para nada, decíselo en el mismo prompt: "respondeme sin modificar la hoja". Si no te molesta el dato auxiliar, dejalo trabajar como le resulte más preciso.</div>
+            </div>
+          </div>
         </div>
-      </div>
 
-      <div class="cell-card">
-        <span class="cell-ref">B2</span>
-        <h3>2. Nombrá la columna exacta al preguntar</h3>
-        <p>Esto ya lo viste en la Parte 1, pero acá se nota todavía más: una pregunta ambigua sobre datos numéricos puede tener varias respuestas posibles válidas. "¿Cuál fue el mejor mes?" — ¿mejor en unidades vendidas, en dinero, en cantidad de ventas registradas? Nombrando la columna exacta eliminás esa ambigüedad.</p>
-        <div class="prompt-row">
-          <div class="prompt prompt-bad"><span class="mark">✕</span> "¿Cuál fue el mejor mes?"</div>
-          <div class="prompt prompt-good"><span class="mark">✓</span> "¿Cuál fue el mes con mayor total de ventas en la columna Total?"</div>
-        </div>
-        <div class="exercise">
-          <label><input type="checkbox"><span>Tomá una pregunta ambigua que se te ocurra sobre tus datos y reescribila nombrando la columna exacta que querés que Copilot use.</span></label>
+        <div class="cell-card accordion-card">
+          <span class="cell-ref">B2</span>
+          <button class="accordion-trigger" type="button" aria-expanded="false" aria-controls="acc-pregunta-datos-2">
+            <h3>2. Nombrá la columna exacta al preguntar</h3>
+            <span class="chev" aria-hidden="true">▸</span>
+          </button>
+          <div class="accordion-body" id="acc-pregunta-datos-2" hidden>
+            <p>Esto ya lo viste en la Parte 1, pero acá se nota todavía más: una pregunta ambigua sobre datos numéricos puede tener varias respuestas posibles válidas. "¿Cuál fue el mejor mes?" — ¿mejor en unidades vendidas, en dinero, en cantidad de ventas registradas? Nombrando la columna exacta eliminás esa ambigüedad.</p>
+            <div class="prompt-row">
+              <div class="prompt prompt-bad"><span class="mark">✕</span> "¿Cuál fue el mejor mes?"</div>
+              <div class="prompt prompt-good"><span class="mark">✓</span> "¿Cuál fue el mes con mayor total de ventas en la columna Total?"</div>
+            </div>
+            <div class="exercise">
+              <label><input type="checkbox"><span>Tomá una pregunta ambigua que se te ocurra sobre tus datos y reescribila nombrando la columna exacta que querés que Copilot use.</span></label>
+            </div>
+          </div>
         </div>
       </div>
 
