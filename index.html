@@ -279,6 +279,22 @@
   .prompt-bad .mark{ color: var(--red); }
   .prompt-good .mark{ color: var(--green-deep); }
 
+  .prompt-copyable{ align-items:flex-start; flex-wrap: wrap; gap: 10px; }
+  .prompt-copyable .prompt-content{ flex: 1 1 260px; }
+  .copy-btn{
+    display:inline-flex; align-items:center; gap: 5px; flex-shrink: 0;
+    font-family: var(--sans); font-size: 12px; font-weight: 600;
+    color: var(--green-deep);
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 5px 10px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .copy-btn:hover{ background: rgba(47,107,79,0.08); border-color: var(--green); }
+  .copy-btn.copied{ background: var(--green-deep); border-color: var(--green-deep); color: #fff; }
+
   .exercise{
     margin-top: 12px; font-size: 13.5px;
   }
@@ -789,7 +805,12 @@
       <p>Para esta hoja vas a necesitar una planilla ficticia de ventas con estas columnas: <strong>Mes, Región, Producto, Vendedor, Unidades, Precio Unitario y Total</strong>. Si no tenés una a mano, pedile a Copilot que te la arme con este prompt:</p>
 
       <div class="prompt-row">
-        <div class="prompt prompt-good"><span class="mark">✓</span> "Creá una tabla de ventas ficticia con las columnas Mes, Región, Producto, Vendedor, Unidades, Precio Unitario y Total. Usá 3 meses del primer trimestre, 3 regiones, 4 productos y 4 vendedores distintos, con unidades entre 3 y 12 por fila. Calculá el Total como Unidades por Precio Unitario. Necesito unas 25 a 30 filas."</div>
+        <div class="prompt prompt-good prompt-copyable">
+          <span class="prompt-content"><span class="mark">✓</span> "Creá una tabla de ventas ficticia con las columnas Mes, Región, Producto, Vendedor, Unidades, Precio Unitario y Total. Usá 3 meses del primer trimestre, 3 regiones, 4 productos y 4 vendedores distintos, con unidades entre 3 y 12 por fila. Calculá el Total como Unidades por Precio Unitario. Necesito unas 25 a 30 filas."</span>
+          <button class="copy-btn" type="button" data-copy-text="Creá una tabla de ventas ficticia con las columnas Mes, Región, Producto, Vendedor, Unidades, Precio Unitario y Total. Usá 3 meses del primer trimestre, 3 regiones, 4 productos y 4 vendedores distintos, con unidades entre 3 y 12 por fila. Calculá el Total como Unidades por Precio Unitario. Necesito unas 25 a 30 filas." aria-label="Copiar este prompt">
+            <span aria-hidden="true">⧉</span> Copiar
+          </button>
+        </div>
       </div>
 
       <p style="font-size:13.5px; color:var(--ink-soft);">Copilot va a inventar sus propios nombres de vendedores, productos y regiones — no van a coincidir con los de nadie más, y no hace falta que coincidan con los de este ejemplo. Lo importante es que la estructura de columnas sea esa. A modo ilustrativo, así podría verse:</p>
@@ -1009,6 +1030,33 @@
         trigger.setAttribute('aria-expanded', 'true');
         body.removeAttribute('hidden');
       }
+    });
+  });
+
+  // ---- botón "Copiar" en prompts (ej. P2.H2) ----
+  document.querySelectorAll('.copy-btn[data-copy-text]').forEach(btn => {
+    const originalHTML = btn.innerHTML;
+    btn.addEventListener('click', async () => {
+      const text = btn.getAttribute('data-copy-text');
+      try {
+        await navigator.clipboard.writeText(text);
+      } catch (err) {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.focus();
+        ta.select();
+        try { document.execCommand('copy'); } catch (e2) { /* noop */ }
+        document.body.removeChild(ta);
+      }
+      btn.classList.add('copied');
+      btn.innerHTML = '<span aria-hidden="true">✓</span> ¡Copiado!';
+      setTimeout(() => {
+        btn.classList.remove('copied');
+        btn.innerHTML = originalHTML;
+      }, 1600);
     });
   });
 
