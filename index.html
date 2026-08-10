@@ -1,3 +1,22 @@
+<!--
+  CHANGELOG — Excel_con_Copilot.xlsx (guía del curso)
+  Semver: MAYOR.MENOR.PARCHE
+    MAYOR: reestructura partes/hojas o rompe navegación existente
+    MENOR: hoja nueva, sección nueva, cambio de contenido relevante
+    PARCHE: arreglo de texto, typo, ajuste chico de estilo/JS sin cambiar contenido
+
+  v1.1.0 (2026-08-10)
+    - Se agrega el sistema de versionado visible (este changelog + badge en el sidebar).
+    - P2.H3 (Ejercicio 2): se reemplazan los 3 prompts para que el resultado sea
+      siempre una columna calculada con nombre propio (Comisión, Ranking de Ventas,
+      Categoría de Venta), con fórmulas simples — antes uno de los prompts pedía
+      una fórmula suelta de suma condicional y otro un promedio agrupado, que no
+      quedaban instalados como columna.
+
+  v1.0.0 (baseline)
+    - Versión inicial: Parte 1 (Bienvenida, Principios, Límites, Glosario) y
+      Parte 2 (Pregúntale a tus datos, Ejercicio 1, Ejercicio 2, Glosario).
+-->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -79,6 +98,13 @@
   }
   .wb-title{ margin:0; font-family: var(--mono); font-size: 13px; font-weight: 700; }
   .wb-sub{ margin:2px 0 0; font-size: 12px; color: var(--ink-soft); }
+  .wb-version{
+    display:inline-block; margin-left: 6px;
+    font-family: var(--mono); font-size: 10.5px; font-weight: 700;
+    color: var(--green-deep); background: var(--blue-tint);
+    border: 1px solid var(--line); border-radius: 10px;
+    padding: 1px 7px; vertical-align: middle;
+  }
 
   .part-tabs{
     display: flex;
@@ -439,7 +465,7 @@
       <span class="logo-fx">fx</span>
       <div>
         <p class="wb-title">Excel_con_Copilot.xlsx</p>
-        <p class="wb-sub">guía del curso</p>
+        <p class="wb-sub">guía del curso <span class="wb-version" title="Versión del archivo (semver)">v1.1.0</span></p>
       </div>
     </div>
 
@@ -893,14 +919,14 @@
           </button>
         </div>
         <div class="prompt prompt-good prompt-copyable">
-          <span class="prompt-content"><span class="mark">✓</span> "Creá una fórmula que sume el Total solo cuando la Región sea Litoral."</span>
-          <button class="copy-btn" type="button" data-copy-text="Creá una fórmula que sume el Total solo cuando la Región sea Litoral." aria-label="Copiar este prompt">
+          <span class="prompt-content"><span class="mark">✓</span> "Agregá una columna llamada Ranking de Ventas que muestre la posición de cada fila según el Total, de mayor a menor."</span>
+          <button class="copy-btn" type="button" data-copy-text="Agregá una columna llamada Ranking de Ventas que muestre la posición de cada fila según el Total, de mayor a menor." aria-label="Copiar este prompt">
             <span aria-hidden="true">⧉</span> Copiar
           </button>
         </div>
         <div class="prompt prompt-good prompt-copyable">
-          <span class="prompt-content"><span class="mark">✓</span> "Creá una fórmula que calcule el promedio de Unidades por Producto."</span>
-          <button class="copy-btn" type="button" data-copy-text="Creá una fórmula que calcule el promedio de Unidades por Producto." aria-label="Copiar este prompt">
+          <span class="prompt-content"><span class="mark">✓</span> "Agregá una columna llamada Categoría de Venta que diga Alta si el Total es mayor a 5000, y Baja si no."</span>
+          <button class="copy-btn" type="button" data-copy-text="Agregá una columna llamada Categoría de Venta que diga Alta si el Total es mayor a 5000, y Baja si no." aria-label="Copiar este prompt">
             <span aria-hidden="true">⧉</span> Copiar
           </button>
         </div>
@@ -908,8 +934,8 @@
 
       <div class="exercise">
         <label><input type="checkbox"><span>Fijate si tu tabla ya tiene nombre y, si es genérico, renombrala a Ventas.</span></label>
-        <label style="margin-top:6px;"><input type="checkbox"><span>Probá los tres prompts de arriba y confirmá si el resultado quedó como columna nueva o como celda con fórmula.</span></label>
-        <label style="margin-top:6px;"><input type="checkbox"><span>Revisá a mano al menos un resultado (por ejemplo, la Comisión de una fila) para confirmar que el cálculo es correcto.</span></label>
+        <label style="margin-top:6px;"><input type="checkbox"><span>Probá los tres prompts de arriba y confirmá que cada uno quedó instalado como una columna nueva en tu tabla.</span></label>
+        <label style="margin-top:6px;"><input type="checkbox"><span>Revisá a mano al menos un resultado (por ejemplo, la Comisión o el Ranking de Ventas de una fila) para confirmar que el cálculo es correcto.</span></label>
       </div>
 
       <div class="prof-note">
