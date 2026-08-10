@@ -426,7 +426,7 @@
 
   <main class="sheet">
     <div class="formula-bar">
-      <span class="fb-ref" id="fbRef">P1.A1</span>
+      <span class="fb-ref" id="fbRef">P1.H1</span>
       <span class="fb-icon">fx</span>
       <span class="fb-text" id="fbText">Bienvenida</span>
     </div>
@@ -805,14 +805,34 @@
     parte1: { sheets: ['p1-bienvenida', 'p1-principios', 'p1-limites', 'p1-glosario'], tabsRow: 'tabsParte1' },
     parte2: { sheets: ['p2-pregunta-datos', 'p2-glosario'], tabsRow: 'tabsParte2' }
   };
+  // El ref (P1.H1, P1.H2...) ya no se hardcodea acá: se calcula solo
+  // según la posición de la hoja dentro del array "sheets" de su parte
+  // (ver getSheetRef más abajo). Así, si el día de mañana se inserta una
+  // hoja nueva en el medio de una parte, la numeración se reacomoda sola.
+  //
+  // PENDIENTE (a definir más adelante, cuando se sume más contenido):
+  // numeración de ejercicios dentro de cada hoja, tipo P1.H1.E1, P1.H1.E2...
+  // Falta decidir (1) si esos tags se muestran en la página o quedan solo
+  // como referencia interna, y (2) si cada checkbox de un mismo bloque
+  // .exercise cuenta como ejercicio separado o si el bloque completo
+  // cuenta como uno solo. Hasta entonces, los bloques .exercise se dejan
+  // como están, sin numerar.
   const sheetMeta = {
-    'p1-bienvenida':     { ref: 'P1.A1', title: 'Bienvenida' },
-    'p1-principios':     { ref: 'P1.B1', title: 'Los 5 principios de prompting' },
-    'p1-limites':        { ref: 'P1.C1', title: 'Los límites de Copilot' },
-    'p1-glosario':       { ref: 'P1.D1', title: 'Glosario rápido' },
-    'p2-pregunta-datos': { ref: 'P2.A1', title: 'Pregúntale a tus datos' },
-    'p2-glosario':       { ref: 'P2.B1', title: 'Glosario rápido' }
+    'p1-bienvenida':     { title: 'Bienvenida' },
+    'p1-principios':     { title: 'Los 5 principios de prompting' },
+    'p1-limites':        { title: 'Los límites de Copilot' },
+    'p1-glosario':       { title: 'Glosario rápido' },
+    'p2-pregunta-datos': { title: 'Pregúntale a tus datos' },
+    'p2-glosario':       { title: 'Glosario rápido' }
   };
+
+  function getSheetRef(sheetId){
+    const partKey = Object.keys(parts).find(k => parts[k].sheets.includes(sheetId));
+    if (!partKey) return '';
+    const partNum = partKey.replace('parte', '');
+    const sheetNum = parts[partKey].sheets.indexOf(sheetId) + 1;
+    return `P${partNum}.H${sheetNum}`;
+  }
 
   const partTabs = document.querySelectorAll('.part-tab[data-part]');
   const allSheetTabsRows = document.querySelectorAll('.sheet-tabs-row');
@@ -834,7 +854,7 @@
     });
 
     const meta = sheetMeta[sheetId];
-    if (meta){ fbRef.textContent = meta.ref; fbText.textContent = meta.title; }
+    if (meta){ fbRef.textContent = getSheetRef(sheetId); fbText.textContent = meta.title; }
 
     document.querySelector('.sheet').scrollTo({ top: 0, behavior: 'smooth' });
   }
