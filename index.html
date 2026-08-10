@@ -621,40 +621,62 @@
       <h1>Los límites de Copilot (para que no te frustres)</h1>
       <p class="lede">Conocer hasta dónde llega Copilot es tan importante como saber pedirle cosas. Si no conocés sus límites, vas a terminar pidiéndole cosas que no puede hacer, vas a pensar que "no sirve" y te vas a frustrar sin necesidad. Acá tenés los cuatro límites más importantes que tenés que tener siempre presentes.</p>
 
-      <div class="cell-card">
-        <span class="cell-ref">A6</span>
-        <h3>1. Copilot también se puede equivocar</h3>
-        <p>Copilot te va a responder siempre con un tono seguro y prolijo, como si estuviera 100% seguro de lo que dice. Pero ese tono no es garantía de que el resultado sea correcto. Si le pedís un cálculo o una proyección, puede haber errores pequeños que son difíciles de notar porque el resultado "se ve" razonable.</p>
-        <div class="prompt-row">
-          <div class="prompt prompt-good"><span class="mark">✓</span> Tratá a Copilot como un asistente que te da un punto de partida, no como la respuesta final. Siempre revisá los números importantes antes de usarlos.</div>
+      <div class="accordion-group" id="accordion-limites">
+        <div class="cell-card accordion-card">
+          <span class="cell-ref">A6</span>
+          <button class="accordion-trigger" type="button" aria-expanded="false" aria-controls="acc-limites-1">
+            <h3>1. Copilot también se puede equivocar</h3>
+            <span class="chev" aria-hidden="true">▸</span>
+          </button>
+          <div class="accordion-body" id="acc-limites-1" hidden>
+            <p>Copilot te va a responder siempre con un tono seguro y prolijo, como si estuviera 100% seguro de lo que dice. Pero ese tono no es garantía de que el resultado sea correcto. Si le pedís un cálculo o una proyección, puede haber errores pequeños que son difíciles de notar porque el resultado "se ve" razonable.</p>
+            <div class="prompt-row">
+              <div class="prompt prompt-good"><span class="mark">✓</span> Tratá a Copilot como un asistente que te da un punto de partida, no como la respuesta final. Siempre revisá los números importantes antes de usarlos.</div>
+            </div>
+          </div>
         </div>
-      </div>
 
-      <div class="cell-card">
-        <span class="cell-ref">A7</span>
-        <h3>2. Le cuesta el formato condicional con varias condiciones a la vez</h3>
-        <p>Si le pedís algo simple, como resaltar en rojo los valores negativos, lo va a hacer sin drama. Pero si le pedís algo con varias condiciones juntas — por ejemplo, resaltar filas de un departamento específico, con un porcentaje negativo y de un vendedor puntual — ahí es más probable que se equivoque o directamente no lo logre.</p>
-        <div class="prompt-row">
-          <div class="prompt prompt-bad"><span class="mark">✕</span> "Resaltá las filas donde el departamento sea Ventas, el cambio sea negativo y el vendedor sea Juan."</div>
-          <div class="prompt prompt-good"><span class="mark">✓</span> "Resaltá en rojo los valores negativos de la columna Cambio." <em style="color:var(--ink-soft); font-style:normal;">(una condición por vez)</em></div>
+        <div class="cell-card accordion-card">
+          <span class="cell-ref">A7</span>
+          <button class="accordion-trigger" type="button" aria-expanded="false" aria-controls="acc-limites-2">
+            <h3>2. Le cuesta el formato condicional con varias condiciones a la vez</h3>
+            <span class="chev" aria-hidden="true">▸</span>
+          </button>
+          <div class="accordion-body" id="acc-limites-2" hidden>
+            <p>Si le pedís algo simple, como resaltar en rojo los valores negativos, lo va a hacer sin drama. Pero si le pedís algo con varias condiciones juntas — por ejemplo, resaltar filas de un departamento específico, con un porcentaje negativo y de un vendedor puntual — ahí es más probable que se equivoque o directamente no lo logre.</p>
+            <div class="prompt-row">
+              <div class="prompt prompt-bad"><span class="mark">✕</span> "Resaltá las filas donde el departamento sea Ventas, el cambio sea negativo y el vendedor sea Juan."</div>
+              <div class="prompt prompt-good"><span class="mark">✓</span> "Resaltá en rojo los valores negativos de la columna Cambio." <em style="color:var(--ink-soft); font-style:normal;">(una condición por vez)</em></div>
+            </div>
+          </div>
         </div>
-      </div>
 
-      <div class="cell-card">
-        <span class="cell-ref">A8</span>
-        <h3>3. Se pone lento (o directamente falla) con tablas muy grandes</h3>
-        <p>Cuanto más grande sea tu tabla, más puede tardar Copilot en responder — a veces unos segundos, a veces bastante más. Si tu tabla tiene demasiadas filas y columnas, puede llegar a trabarse o directamente no darte una respuesta útil.</p>
-        <div class="prompt-row">
-          <div class="prompt prompt-good"><span class="mark">✓</span> Si trabajás con una base de datos enorme, filtrala o dividila en partes más chicas antes de pedirle algo a Copilot. Vas a tener mejores resultados.</div>
+        <div class="cell-card accordion-card">
+          <span class="cell-ref">A8</span>
+          <button class="accordion-trigger" type="button" aria-expanded="false" aria-controls="acc-limites-3">
+            <h3>3. Se pone lento (o directamente falla) con tablas muy grandes</h3>
+            <span class="chev" aria-hidden="true">▸</span>
+          </button>
+          <div class="accordion-body" id="acc-limites-3" hidden>
+            <p>Cuanto más grande sea tu tabla, más puede tardar Copilot en responder — a veces unos segundos, a veces bastante más. Si tu tabla tiene demasiadas filas y columnas, puede llegar a trabarse o directamente no darte una respuesta útil.</p>
+            <div class="prompt-row">
+              <div class="prompt prompt-good"><span class="mark">✓</span> Si trabajás con una base de datos enorme, filtrala o dividila en partes más chicas antes de pedirle algo a Copilot. Vas a tener mejores resultados.</div>
+            </div>
+          </div>
         </div>
-      </div>
 
-      <div class="cell-card">
-        <span class="cell-ref">A9</span>
-        <h3>4. No puede buscar información fuera de tu archivo</h3>
-        <p>Copilot solo "sabe" lo que hay dentro del archivo que tenés abierto. No puede navegar por internet, no puede consultar otras bases de datos y no puede leer archivos que no estén abiertos. Si le preguntás algo que no está en tu planilla — como una cotización actual o una noticia — no va a poder responderte.</p>
-        <div class="prompt-row">
-          <div class="prompt prompt-good"><span class="mark">✓</span> Si necesitás un dato externo (una fecha, un precio, una tasa), buscalo vos y agregalo a la planilla. Recién ahí Copilot va a poder usarlo.</div>
+        <div class="cell-card accordion-card">
+          <span class="cell-ref">A9</span>
+          <button class="accordion-trigger" type="button" aria-expanded="false" aria-controls="acc-limites-4">
+            <h3>4. No puede buscar información fuera de tu archivo</h3>
+            <span class="chev" aria-hidden="true">▸</span>
+          </button>
+          <div class="accordion-body" id="acc-limites-4" hidden>
+            <p>Copilot solo "sabe" lo que hay dentro del archivo que tenés abierto. No puede navegar por internet, no puede consultar otras bases de datos y no puede leer archivos que no estén abiertos. Si le preguntás algo que no está en tu planilla — como una cotización actual o una noticia — no va a poder responderte.</p>
+            <div class="prompt-row">
+              <div class="prompt prompt-good"><span class="mark">✓</span> Si necesitás un dato externo (una fecha, un precio, una tasa), buscalo vos y agregalo a la planilla. Recién ahí Copilot va a poder usarlo.</div>
+            </div>
+          </div>
         </div>
       </div>
 
