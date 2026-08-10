@@ -5,6 +5,14 @@
     MENOR: hoja nueva, sección nueva, cambio de contenido relevante
     PARCHE: arreglo de texto, typo, ajuste chico de estilo/JS sin cambiar contenido
 
+  v1.2.0 (2026-08-10)
+    - P2.H4 (Ejercicio 3, nuevo): búsquedas entre tablas (BUSCARX/BUSCARV).
+      Se agrega la hoja al sheet-tabs-row de Parte 2, al array "parts" y a
+      "sheetMeta". El botón final de P2.H3 (Ejercicio 2) ahora apunta a esta
+      hoja nueva en vez de saltar directo al glosario. El glosario de Parte 2
+      pasa de Hoja 4 a Hoja 5 y suma dos términos (Búsqueda entre tablas,
+      Criterio de búsqueda).
+
   v1.1.0 (2026-08-10)
     - Se agrega el sistema de versionado visible (este changelog + badge en el sidebar).
     - P2.H3 (Ejercicio 2): se reemplazan los 3 prompts para que el resultado sea
@@ -465,7 +473,7 @@
       <span class="logo-fx">fx</span>
       <div>
         <p class="wb-title">Excel_con_Copilot.xlsx</p>
-        <p class="wb-sub">guía del curso <span class="wb-version" title="Versión del archivo (semver)">v1.1.0</span></p>
+        <p class="wb-sub">guía del curso <span class="wb-version" title="Versión del archivo (semver)">v1.2.0</span></p>
       </div>
     </div>
 
@@ -504,6 +512,7 @@
       <button class="htab active" data-sheet="p2-pregunta-datos">Pregúntale a tus datos</button>
       <button class="htab" data-sheet="p2-ejercicio-1">Ejercicio 1</button>
       <button class="htab" data-sheet="p2-ejercicio-2">Ejercicio 2</button>
+      <button class="htab" data-sheet="p2-ejercicio-3">Ejercicio 3</button>
       <button class="htab" data-sheet="p2-glosario">Glosario</button>
     </nav>
 
@@ -955,12 +964,132 @@
         </div>
       </div>
 
+      <p style="margin-top:12px;"><button class="btn btn-ghost" data-goto="p2-ejercicio-3">Buscá y conectá datos entre tablas →</button></p>
+    </section>
+
+    <!-- ===================== PARTE 2 · Ejercicio 3 ===================== -->
+    <section id="p2-ejercicio-3" class="panel" role="tabpanel" hidden>
+      <span class="eyebrow">Parte 2 · Hoja 4</span>
+      <h1>Buscá y conectá datos entre tablas</h1>
+      <p class="lede">Hasta acá trabajaste siempre con una sola tabla. Ahora vas a armar tres tablas relacionadas entre sí y vas a pedirle a Copilot que traiga datos de una hacia otra — el terreno donde antes vivían las fórmulas BUSCARV o BUSCARX.</p>
+
+      <h2>Armá las tres tablas de partida</h2>
+      <p>Vas a necesitar tres hojas nuevas en tu archivo: Empleados, Departamentos y Salarios. Pedile a Copilot que te arme cada una con estos prompts, uno por uno y en ese orden — así los códigos de departamento coinciden entre las tres.</p>
+
+      <div class="prompt-row">
+        <div class="prompt prompt-good prompt-copyable">
+          <span class="prompt-content"><span class="mark">✓</span> "Creá una tabla ficticia de empleados con las columnas ID_Empleado, Nombre, Fecha_Ingreso e ID_Departamento. Necesito 12 empleados, con ID_Empleado correlativo (EMP01, EMP02...) y repartidos entre 4 códigos de departamento distintos que vos elijas (por ejemplo DEV01, MKT01, VEN01, ADM01). Llamá a la tabla Empleados."</span>
+          <button class="copy-btn" type="button" data-copy-text="Creá una tabla ficticia de empleados con las columnas ID_Empleado, Nombre, Fecha_Ingreso e ID_Departamento. Necesito 12 empleados, con ID_Empleado correlativo (EMP01, EMP02...) y repartidos entre 4 códigos de departamento distintos que vos elijas (por ejemplo DEV01, MKT01, VEN01, ADM01). Llamá a la tabla Empleados." aria-label="Copiar este prompt">
+            <span aria-hidden="true">⧉</span> Copiar
+          </button>
+        </div>
+        <div class="prompt prompt-good prompt-copyable">
+          <span class="prompt-content"><span class="mark">✓</span> "En una hoja nueva, creá una tabla ficticia de departamentos con las columnas ID_Departamento, Nombre_Departamento y Gerente. Usá los mismos 4 códigos de departamento de la tabla Empleados, uno por fila, con un nombre de departamento y un gerente distinto para cada uno. Llamá a la tabla Departamentos."</span>
+          <button class="copy-btn" type="button" data-copy-text="En una hoja nueva, creá una tabla ficticia de departamentos con las columnas ID_Departamento, Nombre_Departamento y Gerente. Usá los mismos 4 códigos de departamento de la tabla Empleados, uno por fila, con un nombre de departamento y un gerente distinto para cada uno. Llamá a la tabla Departamentos." aria-label="Copiar este prompt">
+            <span aria-hidden="true">⧉</span> Copiar
+          </button>
+        </div>
+        <div class="prompt prompt-good prompt-copyable">
+          <span class="prompt-content"><span class="mark">✓</span> "En otra hoja nueva, creá una tabla ficticia de salarios con las columnas ID_Departamento, Salario_Base y Bono_Anual. Usá los mismos 4 códigos de departamento de las tablas anteriores, uno por fila, con un salario base y un bono anual distintos para cada departamento. Llamá a la tabla Salarios."</span>
+          <button class="copy-btn" type="button" data-copy-text="En otra hoja nueva, creá una tabla ficticia de salarios con las columnas ID_Departamento, Salario_Base y Bono_Anual. Usá los mismos 4 códigos de departamento de las tablas anteriores, uno por fila, con un salario base y un bono anual distintos para cada departamento. Llamá a la tabla Salarios." aria-label="Copiar este prompt">
+            <span aria-hidden="true">⧉</span> Copiar
+          </button>
+        </div>
+      </div>
+
+      <div class="exercise">
+        <label><input type="checkbox"><span>Corré los tres prompts en ese orden y revisá que los códigos de ID_Departamento sean exactamente los mismos en las tres tablas (mayúsculas incluidas).</span></label>
+        <label style="margin-top:6px;"><input type="checkbox"><span>Confirmá que cada tabla haya quedado con el nombre pedido (Empleados, Departamentos, Salarios) — lo ves en la pestaña Diseño de Tabla.</span></label>
+      </div>
+
+      <div class="prof-note">
+        <span class="prof-label">🎓 Por qué separarlas en tres hojas</span>
+        <p>Esto es a propósito: en un archivo real casi nunca vas a tener todo en una sola tabla. Los datos de personal, de estructura organizativa y de compensación suelen vivir en planillas distintas, y conectarlos es exactamente lo que vas a practicar ahora.</p>
+      </div>
+
+      <h2>Las 3 reglas para pedir búsquedas entre tablas</h2>
+      <p>Cuando el dato que necesitás no está en la tabla donde estás parado, Copilot tiene que ir a buscarlo a otra — y ahí aparecen tres cosas que tenés que dejar claras para que no se confunda.</p>
+
+      <div class="accordion-group" id="accordion-ejercicio3">
+        <div class="cell-card accordion-card">
+          <span class="cell-ref">C1</span>
+          <button class="accordion-trigger" type="button" aria-expanded="false" aria-controls="acc-ejercicio3-1">
+            <h3>1. Nombrá tus tablas con nombres descriptivos</h3>
+            <span class="chev" aria-hidden="true">▸</span>
+          </button>
+          <div class="accordion-body" id="acc-ejercicio3-1" hidden>
+            <p>Ya lo veníamos pidiendo desde la Parte 1, pero acá se vuelve indispensable: si tus tablas se llaman Empleados, Departamentos y Salarios en vez de Tabla1, Tabla2 y Tabla3, Copilot entiende mucho mejor de dónde tiene que traer cada dato cuando se lo pedís por nombre.</p>
+          </div>
+        </div>
+
+        <div class="cell-card accordion-card">
+          <span class="cell-ref">C2</span>
+          <button class="accordion-trigger" type="button" aria-expanded="false" aria-controls="acc-ejercicio3-2">
+            <h3>2. Explicá la relación entre las tablas</h3>
+            <span class="chev" aria-hidden="true">▸</span>
+          </button>
+          <div class="accordion-body" id="acc-ejercicio3-2" hidden>
+            <p>Copilot necesita entender tres cosas para armar la búsqueda: de qué tabla viene el dato, qué columna tienen en común las dos tablas, y en qué columna de tu tabla actual tiene que aparecer el resultado. Si dejás alguna de esas tres afuera del prompt, es más probable que tengas que corregirlo después.</p>
+          </div>
+        </div>
+
+        <div class="cell-card accordion-card">
+          <span class="cell-ref">C3</span>
+          <button class="accordion-trigger" type="button" aria-expanded="false" aria-controls="acc-ejercicio3-3">
+            <h3>3. Pedí la función exacta solo cuando la necesites</h3>
+            <span class="chev" aria-hidden="true">▸</span>
+          </button>
+          <div class="accordion-body" id="acc-ejercicio3-3" hidden>
+            <p>No hace falta que le digas a Copilot qué función usar — si describís bien el pedido, él elige entre BUSCARX, BUSCARV u otra por su cuenta. La excepción es cuando vos necesitás una función específica por algún motivo puntual, por ejemplo porque el archivo lo va a abrir alguien con una versión de Excel que todavía no tiene BUSCARX. Ahí sí tenés que nombrarla en el prompt.</p>
+            <div class="prompt-row">
+              <div class="prompt prompt-bad"><span class="mark">✕</span> "Necesito buscar v en esta tabla." <em style="color:var(--ink-soft); font-style:normal;">(sin decir qué dato, de dónde ni hacia dónde)</em></div>
+              <div class="prompt prompt-good"><span class="mark">✓</span> "Traé el Salario_Base desde la tabla Salarios a la tabla Empleados usando ID_Departamento, con la función BUSCARV."</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h2>Probá las búsquedas</h2>
+      <p>Con las tres tablas listas, sumale estas dos columnas a la tabla Empleados.</p>
+
+      <div class="prompt-row">
+        <div class="prompt prompt-good prompt-copyable">
+          <span class="prompt-content"><span class="mark">✓</span> "Agregá una columna llamada Departamento en la tabla Empleados que traiga el valor de Nombre_Departamento desde la tabla Departamentos, usando ID_Departamento como criterio de búsqueda."</span>
+          <button class="copy-btn" type="button" data-copy-text="Agregá una columna llamada Departamento en la tabla Empleados que traiga el valor de Nombre_Departamento desde la tabla Departamentos, usando ID_Departamento como criterio de búsqueda." aria-label="Copiar este prompt">
+            <span aria-hidden="true">⧉</span> Copiar
+          </button>
+        </div>
+        <div class="prompt prompt-good prompt-copyable">
+          <span class="prompt-content"><span class="mark">✓</span> "Agregá una columna llamada Salario Base en la tabla Empleados que traiga el valor de Salario_Base desde la tabla Salarios, usando ID_Departamento como criterio de búsqueda. Usá específicamente la función BUSCARV."</span>
+          <button class="copy-btn" type="button" data-copy-text="Agregá una columna llamada Salario Base en la tabla Empleados que traiga el valor de Salario_Base desde la tabla Salarios, usando ID_Departamento como criterio de búsqueda. Usá específicamente la función BUSCARV." aria-label="Copiar este prompt">
+            <span aria-hidden="true">⧉</span> Copiar
+          </button>
+        </div>
+      </div>
+
+      <div class="exercise">
+        <label><input type="checkbox"><span>Probá el primer prompt sin nombrar ninguna función y fijate cuál eligió Copilot por su cuenta.</span></label>
+        <label style="margin-top:6px;"><input type="checkbox"><span>Elegí dos filas al azar de la tabla Empleados y revisá a mano, mirando la tabla Departamentos y Salarios, que el Departamento y el Salario Base traídos sean los correctos.</span></label>
+      </div>
+
+      <div class="update-box tip-wrap">
+        <button class="eyebrow tip-trigger" aria-expanded="false" aria-controls="tip-p2-ejercicio-3" title="Pasá el mouse o hacé clic para verlo">
+          Para tener en cuenta <span class="chev" aria-hidden="true">▸</span>
+        </button>
+        <div class="tip-body" id="tip-p2-ejercicio-3" hidden>
+          <ul>
+            <li>Si un valor te aparece como error o en blanco, lo más probable es que el código de ID_Departamento esté escrito distinto en alguna de las tablas (con espacio de más, minúscula en vez de mayúscula, etc.) — revisalo ahí primero.</li>
+            <li>Esto mismo funciona con búsquedas entre hojas de un mismo archivo o entre tablas de una misma hoja: lo que importa es la columna en común, no dónde esté ubicada cada una.</li>
+          </ul>
+        </div>
+      </div>
+
       <p style="margin-top:12px;"><button class="btn btn-ghost" data-goto="p2-glosario">Ver el glosario de esta parte →</button></p>
     </section>
 
     <!-- ===================== PARTE 2 · Glosario ===================== -->
     <section id="p2-glosario" class="panel" role="tabpanel" hidden>
-      <span class="eyebrow">Parte 2 · Hoja 4</span>
+      <span class="eyebrow">Parte 2 · Hoja 5</span>
       <h1>Glosario rápido</h1>
       <p class="lede">Los términos de esta parte, para tener a mano mientras practicás.</p>
       <dl class="glossary">
@@ -980,6 +1109,14 @@
           <dt>Campo calculado</dt>
           <dd>Columna nueva o fórmula que Copilot agrega a tu hoja para responder un pedido, y que queda instalada en la planilla en vez de mostrarse solo como respuesta.</dd>
         </div>
+        <div class="gterm">
+          <dt>Búsqueda entre tablas</dt>
+          <dd>Traer un dato desde una tabla distinta usando una columna en común como criterio (por ejemplo, BUSCARX o BUSCARV).</dd>
+        </div>
+        <div class="gterm">
+          <dt>Criterio de búsqueda</dt>
+          <dd>La columna en común entre dos tablas que Copilot usa para saber qué fila de una le corresponde a cada fila de la otra.</dd>
+        </div>
       </dl>
 
       <div class="soon" style="padding: 20px 0 10px;">
@@ -998,7 +1135,7 @@
   // ---- estructura de partes y hojas ----
   const parts = {
     parte1: { sheets: ['p1-bienvenida', 'p1-principios', 'p1-limites', 'p1-glosario'], tabsRow: 'tabsParte1' },
-    parte2: { sheets: ['p2-pregunta-datos', 'p2-ejercicio-1', 'p2-ejercicio-2', 'p2-glosario'], tabsRow: 'tabsParte2' }
+    parte2: { sheets: ['p2-pregunta-datos', 'p2-ejercicio-1', 'p2-ejercicio-2', 'p2-ejercicio-3', 'p2-glosario'], tabsRow: 'tabsParte2' }
   };
   // El ref (P1.H1, P1.H2...) ya no se hardcodea acá: se calcula solo
   // según la posición de la hoja dentro del array "sheets" de su parte
@@ -1020,6 +1157,7 @@
     'p2-pregunta-datos': { title: 'Pregúntale a tus datos' },
     'p2-ejercicio-1':    { title: 'Practicá con una planilla de ejemplo' },
     'p2-ejercicio-2':    { title: 'Convertí preguntas en columnas y fórmulas' },
+    'p2-ejercicio-3':    { title: 'Buscá y conectá datos entre tablas' },
     'p2-glosario':       { title: 'Glosario rápido' }
   };
 
