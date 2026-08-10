@@ -460,6 +460,7 @@
     <!-- ===== hojas de la Parte 2 ===== -->
     <nav class="sheet-tabs-row" id="tabsParte2" role="tablist" aria-label="Hojas — Parte 2" hidden>
       <button class="htab active" data-sheet="p2-pregunta-datos">Pregúntale a tus datos</button>
+      <button class="htab" data-sheet="p2-ejercicio-1">Ejercicio 1</button>
       <button class="htab" data-sheet="p2-glosario">Glosario</button>
     </nav>
 
@@ -778,7 +779,13 @@
         </div>
       </div>
 
-      <h2>Practicá con una planilla de ejemplo</h2>
+      <p style="margin-top:12px;"><button class="btn btn-ghost" data-goto="p2-ejercicio-1">Practicá con una planilla de ejemplo →</button></p>
+    </section>
+
+    <!-- ===================== PARTE 2 · Ejercicio 1 ===================== -->
+    <section id="p2-ejercicio-1" class="panel" role="tabpanel" hidden>
+      <span class="eyebrow">Parte 2 · Hoja 2</span>
+      <h1>Practicá con una planilla de ejemplo</h1>
       <p>Para esta hoja vas a necesitar una planilla ficticia de ventas con estas columnas: <strong>Mes, Región, Producto, Vendedor, Unidades, Precio Unitario y Total</strong>. Si no tenés una a mano, pedile a Copilot que te la arme con este prompt:</p>
 
       <div class="prompt-row">
@@ -832,10 +839,10 @@
       </div>
 
       <div class="update-box tip-wrap">
-        <button class="eyebrow tip-trigger" aria-expanded="false" aria-controls="tip-p2-pregunta-datos" title="Pasá el mouse o hacé clic para verlo">
+        <button class="eyebrow tip-trigger" aria-expanded="false" aria-controls="tip-p2-ejercicio-1" title="Pasá el mouse o hacé clic para verlo">
           Para tener en cuenta <span class="chev" aria-hidden="true">▸</span>
         </button>
-        <div class="tip-body" id="tip-p2-pregunta-datos" hidden>
+        <div class="tip-body" id="tip-p2-ejercicio-1" hidden>
           <ul>
             <li>Una pregunta puntual siempre apunta a <strong>un solo dato de salida</strong>: un número, un nombre o una fecha. Si tu pregunta podría responderse con una lista o un gráfico, ya no es puntual — eso lo vas a ver en las próximas hojas de esta parte.</li>
             <li>Recordá el límite de la Parte 1: revisá los resultados importantes antes de darlos por buenos, sobre todo si vas a tomar una decisión con ellos.</li>
@@ -848,7 +855,7 @@
 
     <!-- ===================== PARTE 2 · Glosario ===================== -->
     <section id="p2-glosario" class="panel" role="tabpanel" hidden>
-      <span class="eyebrow">Parte 2 · Hoja 2</span>
+      <span class="eyebrow">Parte 2 · Hoja 3</span>
       <h1>Glosario rápido</h1>
       <p class="lede">Los términos de esta parte, para tener a mano mientras practicás.</p>
       <dl class="glossary">
@@ -882,7 +889,7 @@
   // ---- estructura de partes y hojas ----
   const parts = {
     parte1: { sheets: ['p1-bienvenida', 'p1-principios', 'p1-limites', 'p1-glosario'], tabsRow: 'tabsParte1' },
-    parte2: { sheets: ['p2-pregunta-datos', 'p2-glosario'], tabsRow: 'tabsParte2' }
+    parte2: { sheets: ['p2-pregunta-datos', 'p2-ejercicio-1', 'p2-glosario'], tabsRow: 'tabsParte2' }
   };
   // El ref (P1.H1, P1.H2...) ya no se hardcodea acá: se calcula solo
   // según la posición de la hoja dentro del array "sheets" de su parte
@@ -902,6 +909,7 @@
     'p1-limites':        { title: 'Los límites de Copilot' },
     'p1-glosario':       { title: 'Glosario rápido' },
     'p2-pregunta-datos': { title: 'Pregúntale a tus datos' },
+    'p2-ejercicio-1':    { title: 'Practicá con una planilla de ejemplo' },
     'p2-glosario':       { title: 'Glosario rápido' }
   };
 
