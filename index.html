@@ -538,14 +538,14 @@
 
       <div class="cell-card">
         <span class="cell-ref">A5</span>
-        <h3>5. Una pregunta, una cosa</h3>
-        <p>Pedí una sola acción por vez. Si encadenás varios pedidos en un mismo prompt ("sumá esto, después ordená aquello y también hacé un gráfico"), aumenta la chance de que Copilot resuelva mal alguna parte.</p>
+        <h3>5. Un objetivo por prompt, no varios sueltos</h3>
+        <p>Podés pedirle varios pasos en un mismo prompt si todos apuntan a resolver lo mismo — agregar tres columnas calculadas y después ordenar por una de ellas es una sola tarea. El problema aparece cuando metés pedidos que no tienen relación entre sí: ahí Copilot tiene que rellenar huecos de decisión por su cuenta, y es más probable que se pierda algo.</p>
         <div class="prompt-row">
-          <div class="prompt prompt-bad"><span class="mark">✕</span> "Sumá las ventas, filtrá por región y armame un gráfico."</div>
-          <div class="prompt prompt-good"><span class="mark">✓</span> "Sumá las ventas por región." <em style="color:var(--ink-soft); font-style:normal;">(y después, en otro prompt, pedís el gráfico)</em></div>
+          <div class="prompt prompt-bad"><span class="mark">✕</span> "Agregá columnas de IVA, Margen y Comisión, y además creame una hoja nueva con el listado de clientes morosos."</div>
+          <div class="prompt prompt-good"><span class="mark">✓</span> "Agregá columnas de IVA, Margen y Comisión, y ordená de mayor a menor por Margen."</div>
         </div>
         <div class="exercise">
-          <label><input type="checkbox"><span>Tomá un prompt largo que hayas escrito y separalo en 2 o 3 prompts individuales.</span></label>
+          <label><input type="checkbox"><span>Tomá un prompt que hayas escrito con pedidos sin relación entre sí y separalo en prompts individuales, uno por objetivo.</span></label>
         </div>
       </div>
 
@@ -561,7 +561,7 @@
         <div class="tip-body" id="tip-p1-principios" hidden>
           <ul>
             <li>Copilot funciona mucho mejor —y en algunos casos solo funciona— si tus datos están convertidos en <strong>Tabla de Excel</strong> (Insertar → Tabla), no en un rango suelto de celdas.</li>
-            <li>Desde 2026, muchas versiones de Copilot incorporan un <strong>modo Agente</strong>, que permite encadenar varios pasos a partir de una sola instrucción más elaborada. Aun así, para aprender a prompt-ear bien conviene seguir practicando "una cosa por vez" primero.</li>
+            <li>Desde 2026, muchas versiones de Copilot incorporan un <strong>modo Agente</strong>, que permite encadenar varios pasos a partir de una sola instrucción más elaborada. Aun así, para aprender a prompt-ear bien conviene seguir practicando con objetivos acotados primero.</li>
             <li>Copilot también puede "anclarse" a otras fuentes además de la hoja activa (por ejemplo, listas de SharePoint), dependiendo del plan de Microsoft 365 que uses.</li>
           </ul>
         </div>
