@@ -477,6 +477,7 @@
     <nav class="sheet-tabs-row" id="tabsParte2" role="tablist" aria-label="Hojas — Parte 2" hidden>
       <button class="htab active" data-sheet="p2-pregunta-datos">Pregúntale a tus datos</button>
       <button class="htab" data-sheet="p2-ejercicio-1">Ejercicio 1</button>
+      <button class="htab" data-sheet="p2-ejercicio-2">Ejercicio 2</button>
       <button class="htab" data-sheet="p2-glosario">Glosario</button>
     </nav>
 
@@ -871,12 +872,69 @@
         </div>
       </div>
 
+      <p style="margin-top:12px;"><button class="btn btn-ghost" data-goto="p2-ejercicio-2">Pedile campos calculados a tu tabla →</button></p>
+    </section>
+
+    <!-- ===================== PARTE 2 · Ejercicio 2 ===================== -->
+    <section id="p2-ejercicio-2" class="panel" role="tabpanel" hidden>
+      <span class="eyebrow">Parte 2 · Hoja 3</span>
+      <h1>Convertí preguntas en columnas y fórmulas</h1>
+      <p class="lede">Hasta acá le pediste a Copilot un solo dato de respuesta. Ahora vas a pedirle algo distinto: que ese cálculo quede instalado en tu planilla, como una columna nueva o una fórmula que seguís usando después.</p>
+
+      <p style="font-size:13.5px; color:var(--ink-soft);">Antes de seguir: revisá si tu listado del Ejercicio 1 ya quedó convertido en Tabla de Excel — Copilot a veces lo hace solo. Si tiene un nombre genérico como Tabla1, renombralo a Ventas para que tus próximos prompts sean más precisos.</p>
+
+      <p style="margin-top:28px;">Probá estos tres prompts, uno por uno, sobre tu planilla:</p>
+
+      <div class="prompt-row">
+        <div class="prompt prompt-good prompt-copyable">
+          <span class="prompt-content"><span class="mark">✓</span> "Agregá una columna llamada Comisión que calcule el 5% del Total para cada fila."</span>
+          <button class="copy-btn" type="button" data-copy-text="Agregá una columna llamada Comisión que calcule el 5% del Total para cada fila." aria-label="Copiar este prompt">
+            <span aria-hidden="true">⧉</span> Copiar
+          </button>
+        </div>
+        <div class="prompt prompt-good prompt-copyable">
+          <span class="prompt-content"><span class="mark">✓</span> "Creá una fórmula que sume el Total solo cuando la Región sea Litoral."</span>
+          <button class="copy-btn" type="button" data-copy-text="Creá una fórmula que sume el Total solo cuando la Región sea Litoral." aria-label="Copiar este prompt">
+            <span aria-hidden="true">⧉</span> Copiar
+          </button>
+        </div>
+        <div class="prompt prompt-good prompt-copyable">
+          <span class="prompt-content"><span class="mark">✓</span> "Creá una fórmula que calcule el promedio de Unidades por Producto."</span>
+          <button class="copy-btn" type="button" data-copy-text="Creá una fórmula que calcule el promedio de Unidades por Producto." aria-label="Copiar este prompt">
+            <span aria-hidden="true">⧉</span> Copiar
+          </button>
+        </div>
+      </div>
+
+      <div class="exercise">
+        <label><input type="checkbox"><span>Fijate si tu tabla ya tiene nombre y, si es genérico, renombrala a Ventas.</span></label>
+        <label style="margin-top:6px;"><input type="checkbox"><span>Probá los tres prompts de arriba y confirmá si el resultado quedó como columna nueva o como celda con fórmula.</span></label>
+        <label style="margin-top:6px;"><input type="checkbox"><span>Revisá a mano al menos un resultado (por ejemplo, la Comisión de una fila) para confirmar que el cálculo es correcto.</span></label>
+      </div>
+
+      <div class="prof-note">
+        <span class="prof-label">🎓 La diferencia con el Ejercicio 1</span>
+        <p>Una pregunta puntual te da un dato y listo; un campo calculado se queda en tu hoja como columna o fórmula, y sigue ahí después de cerrar el chat. Por eso conviene revisarlo con más cuidado — un error acá se arrastra cada vez que uses esa columna.</p>
+      </div>
+
+      <div class="update-box tip-wrap">
+        <button class="eyebrow tip-trigger" aria-expanded="false" aria-controls="tip-p2-ejercicio-2" title="Pasá el mouse o hacé clic para verlo">
+          Para tener en cuenta <span class="chev" aria-hidden="true">▸</span>
+        </button>
+        <div class="tip-body" id="tip-p2-ejercicio-2" hidden>
+          <ul>
+            <li>Si tu listado ya es una Tabla de Excel, una columna calculada que agregues se autocompleta sola para todas las filas — es una de las ventajas de trabajar con Tabla en vez de un rango suelto.</li>
+            <li>Nombrar una tabla que ya existe no borra ni reordena tus datos, solo la registra con ese nombre para que Copilot la identifique mejor.</li>
+          </ul>
+        </div>
+      </div>
+
       <p style="margin-top:12px;"><button class="btn btn-ghost" data-goto="p2-glosario">Ver el glosario de esta parte →</button></p>
     </section>
 
     <!-- ===================== PARTE 2 · Glosario ===================== -->
     <section id="p2-glosario" class="panel" role="tabpanel" hidden>
-      <span class="eyebrow">Parte 2 · Hoja 3</span>
+      <span class="eyebrow">Parte 2 · Hoja 4</span>
       <h1>Glosario rápido</h1>
       <p class="lede">Los términos de esta parte, para tener a mano mientras practicás.</p>
       <dl class="glossary">
@@ -891,6 +949,10 @@
         <div class="gterm">
           <dt>Dato auxiliar</dt>
           <dd>Tabla o cálculo intermedio que Copilot deja en la hoja como evidencia de cómo llegó a un resultado.</dd>
+        </div>
+        <div class="gterm">
+          <dt>Campo calculado</dt>
+          <dd>Columna nueva o fórmula que Copilot agrega a tu hoja para responder un pedido, y que queda instalada en la planilla en vez de mostrarse solo como respuesta.</dd>
         </div>
       </dl>
 
@@ -910,7 +972,7 @@
   // ---- estructura de partes y hojas ----
   const parts = {
     parte1: { sheets: ['p1-bienvenida', 'p1-principios', 'p1-limites', 'p1-glosario'], tabsRow: 'tabsParte1' },
-    parte2: { sheets: ['p2-pregunta-datos', 'p2-ejercicio-1', 'p2-glosario'], tabsRow: 'tabsParte2' }
+    parte2: { sheets: ['p2-pregunta-datos', 'p2-ejercicio-1', 'p2-ejercicio-2', 'p2-glosario'], tabsRow: 'tabsParte2' }
   };
   // El ref (P1.H1, P1.H2...) ya no se hardcodea acá: se calcula solo
   // según la posición de la hoja dentro del array "sheets" de su parte
@@ -931,6 +993,7 @@
     'p1-glosario':       { title: 'Glosario rápido' },
     'p2-pregunta-datos': { title: 'Pregúntale a tus datos' },
     'p2-ejercicio-1':    { title: 'Practicá con una planilla de ejemplo' },
+    'p2-ejercicio-2':    { title: 'Convertí preguntas en columnas y fórmulas' },
     'p2-glosario':       { title: 'Glosario rápido' }
   };
 
