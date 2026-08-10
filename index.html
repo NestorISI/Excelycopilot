@@ -1,9 +1,19 @@
 <!--
-  CHANGELOG — Excel_con_Copilot.xlsx (guía del curso)
+  CHANGELOG — Excel_con_IA.xlsx (guía del curso)
   Semver: MAYOR.MENOR.PARCHE
     MAYOR: reestructura partes/hojas o rompe navegación existente
     MENOR: hoja nueva, sección nueva, cambio de contenido relevante
     PARCHE: arreglo de texto, typo, ajuste chico de estilo/JS sin cambiar contenido
+
+  v1.3.0 (2026-08-10)
+    - Se generaliza toda referencia puntual a "Copilot" por "la IA" / "Inteligencia
+      artificial", ya que el curso va a cubrir más de una herramienta integrada a
+      Excel (Copilot, Claude, u otras), no solo Copilot. Cambia también el nombre
+      de archivo mostrado en el título y el sidebar (Excel_con_Copilot.xlsx →
+      Excel_con_IA.xlsx) y las hojas/etiquetas que nombraban a Copilot directamente
+      ("Límites de Copilot" → "Límites de la IA", part-tabs, sheetMeta, etc.).
+      Se deja una sola mención explícita a "Copilot" como ejemplo concreto (P2.H2,
+      nota sobre guardar la planilla para que la IA pueda acceder a ella).
 
   v1.2.0 (2026-08-10)
     - P2.H4 (Ejercicio 3, nuevo): búsquedas entre tablas (BUSCARX/BUSCARV).
@@ -30,7 +40,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Excel_con_Copilot.xlsx — Guía del curso</title>
+<title>Excel_con_IA.xlsx — Guía del curso</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -472,8 +482,8 @@
     <div class="sidebar-head">
       <span class="logo-fx">fx</span>
       <div>
-        <p class="wb-title">Excel_con_Copilot.xlsx</p>
-        <p class="wb-sub">guía del curso <span class="wb-version" title="Versión del archivo (semver)">v1.2.0</span></p>
+        <p class="wb-title">Excel_con_IA.xlsx</p>
+        <p class="wb-sub">guía del curso <span class="wb-version" title="Versión del archivo (semver)">v1.3.0</span></p>
       </div>
     </div>
 
@@ -481,11 +491,11 @@
       <span class="part-eyebrow">Partes del curso</span>
       <button class="part-tab active" data-part="parte1" role="tab" aria-selected="true">
         <span class="part-num">Parte 1</span>
-        Comenzando el uso de Copilot con Excel
+        Comenzando el uso de la IA en Excel
       </button>
       <button class="part-tab" data-part="parte2" role="tab" aria-selected="false">
         <span class="part-num">Parte 2</span>
-        Analiza tus datos con Copilot
+        Analiza tus datos con IA
       </button>
     </nav>
 
@@ -503,7 +513,7 @@
     <nav class="sheet-tabs-row" id="tabsParte1" role="tablist" aria-label="Hojas — Parte 1">
       <button class="htab active" data-sheet="p1-bienvenida">Bienvenida</button>
       <button class="htab" data-sheet="p1-principios">Principios</button>
-      <button class="htab" data-sheet="p1-limites">Límites de Copilot</button>
+      <button class="htab" data-sheet="p1-limites">Límites de la IA</button>
       <button class="htab" data-sheet="p1-glosario">Glosario</button>
     </nav>
 
@@ -518,13 +528,13 @@
 
     <!-- ===================== PARTE 1 · Bienvenida ===================== -->
     <section id="p1-bienvenida" class="panel" role="tabpanel">
-      <span class="eyebrow">Parte 1 · Comenzando el uso de Copilot con Excel</span>
-      <h1>Tus primeros pasos con Copilot en Excel</h1>
-      <p class="lede">Esta guía te acompaña mientras aprendés a usar Copilot dentro de Excel. Vas a encontrar cada concepto explicado en lenguaje simple, con ejemplos de prompts comparados lado a lado y ejercicios cortos para fijarlo en tu propio archivo.</p>
+      <span class="eyebrow">Parte 1 · Comenzando el uso de la IA en Excel</span>
+      <h1>Tus primeros pasos con la IA en Excel</h1>
+      <p class="lede">Esta guía te acompaña mientras aprendés a usar la IA dentro de Excel. Vas a encontrar cada concepto explicado en lenguaje simple, con ejemplos de prompts comparados lado a lado y ejercicios cortos para fijarlo en tu propio archivo.</p>
 
       <div class="prof-note">
         <span class="prof-label">🎓 Por qué conviene practicar, no solo leer</span>
-        <p>Leer esta guía te da el mapa, pero Copilot se aprende de verdad cuando lo probás en un archivo real. Los errores que comete cuando un prompt es ambiguo son la mejor lección para entender cómo pedirle las cosas mejor la próxima vez.</p>
+        <p>Leer esta guía te da el mapa, pero la IA se aprende de verdad cuando la probás en un archivo real. Los errores que comete cuando un prompt es ambiguo son la mejor lección para entender cómo pedirle las cosas mejor la próxima vez.</p>
       </div>
 
       <h2>Cómo usar esta guía</h2>
@@ -552,8 +562,8 @@
     <!-- ===================== PARTE 1 · Principios ===================== -->
     <section id="p1-principios" class="panel" role="tabpanel" hidden>
       <span class="eyebrow">Parte 1 · Hoja 2</span>
-      <h1>Los 5 principios para prompts efectivos en Copilot</h1>
-      <p class="lede">Cinco reglas para escribir instrucciones que Copilot entienda bien a la primera, en lugar de tener que corregir el resultado varias veces.</p>
+      <h1>Los 5 principios para prompts efectivos con IA</h1>
+      <p class="lede">Cinco reglas para escribir instrucciones que la IA entienda bien a la primera, en lugar de tener que corregir el resultado varias veces.</p>
 
       <div class="accordion-group" id="accordion-principios">
         <div class="cell-card accordion-card">
@@ -563,13 +573,13 @@
             <span class="chev" aria-hidden="true">▸</span>
           </button>
           <div class="accordion-body" id="acc-principios-1" hidden>
-            <p>Copilot no adivina a qué te referís si usás nombres vagos ("la tabla", "esos datos"). Nombrá exactamente la hoja, la tabla o el archivo sobre el que querés que trabaje.</p>
+            <p>La IA no adivina a qué te referís si usás nombres vagos ("la tabla", "esos datos"). Nombrá exactamente la hoja, la tabla o el archivo sobre el que querés que trabaje.</p>
             <div class="prompt-row">
               <div class="prompt prompt-bad"><span class="mark">✕</span> "Sumá las ventas de la tabla."</div>
               <div class="prompt prompt-good"><span class="mark">✓</span> "Sumá la columna Total de la tabla Ventas2025."</div>
             </div>
             <div class="exercise">
-              <label><input type="checkbox"><span>Abrí un archivo tuyo y pedile a Copilot algo nombrando la tabla exacta por su nombre real (Insertar → Tabla te da un nombre en la pestaña Diseño de Tabla).</span></label>
+              <label><input type="checkbox"><span>Abrí un archivo tuyo y pedile a la IA algo nombrando la tabla exacta por su nombre real (Insertar → Tabla te da un nombre en la pestaña Diseño de Tabla).</span></label>
             </div>
           </div>
         </div>
@@ -599,7 +609,7 @@
             <span class="chev" aria-hidden="true">▸</span>
           </button>
           <div class="accordion-body" id="acc-principios-3" hidden>
-            <p>Decile a Copilot dónde empieza y termina el trabajo, o bajo qué condición filtrar. Sin eso, puede interpretar la hoja completa cuando vos querías solo una parte.</p>
+            <p>Decile a la IA dónde empieza y termina el trabajo, o bajo qué condición filtrar. Sin eso, puede interpretar la hoja completa cuando vos querías solo una parte.</p>
             <div class="prompt-row">
               <div class="prompt prompt-bad"><span class="mark">✕</span> "Contame cuántos son mayores a 100."</div>
               <div class="prompt prompt-good"><span class="mark">✓</span> "Contá cuántas filas de la columna Monto tienen un valor mayor a 100, solo en la región Norte."</div>
@@ -617,7 +627,7 @@
             <span class="chev" aria-hidden="true">▸</span>
           </button>
           <div class="accordion-body" id="acc-principios-4" hidden>
-            <p>No hace falta escribirle a Copilot como si fuera una fórmula. Andá directo con verbos claros: crear, resumir, comparar, ordenar, filtrar. Evitá rodeos.</p>
+            <p>No hace falta escribirle a la IA como si fuera una fórmula. Andá directo con verbos claros: crear, resumir, comparar, ordenar, filtrar. Evitá rodeos.</p>
             <div class="prompt-row">
               <div class="prompt prompt-bad"><span class="mark">✕</span> "Quisiera que, si no es mucha molestia, me ayudaras a ver de qué forma podría calcular un total."</div>
               <div class="prompt prompt-good"><span class="mark">✓</span> "Calculá el total de la columna Ventas."</div>
@@ -635,7 +645,7 @@
             <span class="chev" aria-hidden="true">▸</span>
           </button>
           <div class="accordion-body" id="acc-principios-5" hidden>
-            <p>Podés pedirle varios pasos en un mismo prompt si todos apuntan a resolver lo mismo — agregar tres columnas calculadas y después ordenar por una de ellas es una sola tarea. El problema aparece cuando metés pedidos que no tienen relación entre sí: ahí Copilot tiene que rellenar huecos de decisión por su cuenta, y es más probable que se pierda algo.</p>
+            <p>Podés pedirle varios pasos en un mismo prompt si todos apuntan a resolver lo mismo — agregar tres columnas calculadas y después ordenar por una de ellas es una sola tarea. El problema aparece cuando metés pedidos que no tienen relación entre sí: ahí la IA tiene que rellenar huecos de decisión por su cuenta, y es más probable que se pierda algo.</p>
             <div class="prompt-row">
               <div class="prompt prompt-bad"><span class="mark">✕</span> "Agregá columnas de IVA, Margen y Comisión, y además creame una hoja nueva con el listado de clientes morosos."</div>
               <div class="prompt prompt-good"><span class="mark">✓</span> "Agregá columnas de IVA, Margen y Comisión, y ordená de mayor a menor por Margen."</div>
@@ -649,7 +659,7 @@
 
       <div class="prof-note">
         <span class="prof-label">🎓 Si el resultado no es el esperado</span>
-        <p>Cuando Copilot interpreta mal un prompt ambiguo, no hace falta empezar de cero: pedile que ajuste solo la parte que falló, señalando exactamente qué tiene que cambiar.</p>
+        <p>Cuando la IA interpreta mal un prompt ambiguo, no hace falta empezar de cero: pedile que ajuste solo la parte que falló, señalando exactamente qué tiene que cambiar.</p>
       </div>
 
       <div class="update-box tip-wrap">
@@ -658,33 +668,33 @@
         </button>
         <div class="tip-body" id="tip-p1-principios" hidden>
           <ul>
-            <li>Copilot funciona mucho mejor —y en algunos casos solo funciona— si tus datos están convertidos en <strong>Tabla de Excel</strong> (Insertar → Tabla), no en un rango suelto de celdas.</li>
-            <li>Desde 2026, muchas versiones de Copilot incorporan un <strong>modo Agente</strong>, que permite encadenar varios pasos a partir de una sola instrucción más elaborada. Aun así, para aprender a prompt-ear bien conviene seguir practicando con objetivos acotados primero.</li>
-            <li>Copilot también puede "anclarse" a otras fuentes además de la hoja activa (por ejemplo, listas de SharePoint), dependiendo del plan de Microsoft 365 que uses.</li>
+            <li>La IA funciona mucho mejor —y en algunos casos solo funciona— si tus datos están convertidos en <strong>Tabla de Excel</strong> (Insertar → Tabla), no en un rango suelto de celdas.</li>
+            <li>Desde 2026, muchas herramientas de IA incorporan un <strong>modo Agente</strong>, que permite encadenar varios pasos a partir de una sola instrucción más elaborada. Aun así, para aprender a prompt-ear bien conviene seguir practicando con objetivos acotados primero.</li>
+            <li>La IA también puede "anclarse" a otras fuentes además de la hoja activa (por ejemplo, listas de SharePoint), dependiendo de la herramienta y el plan que uses.</li>
           </ul>
         </div>
       </div>
 
-      <p style="margin-top:12px;"><button class="btn btn-ghost" data-goto="p1-limites">Ver los límites de Copilot →</button></p>
+      <p style="margin-top:12px;"><button class="btn btn-ghost" data-goto="p1-limites">Ver los límites de la IA →</button></p>
     </section>
 
-    <!-- ===================== PARTE 1 · Límites de Copilot ===================== -->
+    <!-- ===================== PARTE 1 · Límites de la IA ===================== -->
     <section id="p1-limites" class="panel" role="tabpanel" hidden>
       <span class="eyebrow">Parte 1 · Hoja 3</span>
-      <h1>Los límites de Copilot (para que no te frustres)</h1>
-      <p class="lede">Conocer hasta dónde llega Copilot es tan importante como saber pedirle cosas. Si no conocés sus límites, vas a terminar pidiéndole cosas que no puede hacer, vas a pensar que "no sirve" y te vas a frustrar sin necesidad. Acá tenés los cuatro límites más importantes que tenés que tener siempre presentes.</p>
+      <h1>Los límites de la IA (para que no te frustres)</h1>
+      <p class="lede">Conocer hasta dónde llega la IA es tan importante como saber pedirle cosas. Si no conocés sus límites, vas a terminar pidiéndole cosas que no puede hacer, vas a pensar que "no sirve" y te vas a frustrar sin necesidad. Acá tenés los cuatro límites más importantes que tenés que tener siempre presentes.</p>
 
       <div class="accordion-group" id="accordion-limites">
         <div class="cell-card accordion-card">
           <span class="cell-ref">A6</span>
           <button class="accordion-trigger" type="button" aria-expanded="false" aria-controls="acc-limites-1">
-            <h3>1. Copilot también se puede equivocar</h3>
+            <h3>1. La IA también se puede equivocar</h3>
             <span class="chev" aria-hidden="true">▸</span>
           </button>
           <div class="accordion-body" id="acc-limites-1" hidden>
-            <p>Copilot te va a responder siempre con un tono seguro y prolijo, como si estuviera 100% seguro de lo que dice. Pero ese tono no es garantía de que el resultado sea correcto. Si le pedís un cálculo o una proyección, puede haber errores pequeños que son difíciles de notar porque el resultado "se ve" razonable.</p>
+            <p>La IA te va a responder siempre con un tono seguro y prolijo, como si estuviera 100% seguro de lo que dice. Pero ese tono no es garantía de que el resultado sea correcto. Si le pedís un cálculo o una proyección, puede haber errores pequeños que son difíciles de notar porque el resultado "se ve" razonable.</p>
             <div class="prompt-row">
-              <div class="prompt prompt-good"><span class="mark">✓</span> Tratá a Copilot como un asistente que te da un punto de partida, no como la respuesta final. Siempre revisá los números importantes antes de usarlos.</div>
+              <div class="prompt prompt-good"><span class="mark">✓</span> Tratá a la IA como un asistente que te da un punto de partida, no como la respuesta final. Siempre revisá los números importantes antes de usarlos.</div>
             </div>
           </div>
         </div>
@@ -711,9 +721,9 @@
             <span class="chev" aria-hidden="true">▸</span>
           </button>
           <div class="accordion-body" id="acc-limites-3" hidden>
-            <p>Cuanto más grande sea tu tabla, más puede tardar Copilot en responder — a veces unos segundos, a veces bastante más. Si tu tabla tiene demasiadas filas y columnas, puede llegar a trabarse o directamente no darte una respuesta útil.</p>
+            <p>Cuanto más grande sea tu tabla, más puede tardar la IA en responder — a veces unos segundos, a veces bastante más. Si tu tabla tiene demasiadas filas y columnas, puede llegar a trabarse o directamente no darte una respuesta útil.</p>
             <div class="prompt-row">
-              <div class="prompt prompt-good"><span class="mark">✓</span> Si trabajás con una base de datos enorme, filtrala o dividila en partes más chicas antes de pedirle algo a Copilot. Vas a tener mejores resultados.</div>
+              <div class="prompt prompt-good"><span class="mark">✓</span> Si trabajás con una base de datos enorme, filtrala o dividila en partes más chicas antes de pedirle algo a la IA. Vas a tener mejores resultados.</div>
             </div>
           </div>
         </div>
@@ -725,9 +735,9 @@
             <span class="chev" aria-hidden="true">▸</span>
           </button>
           <div class="accordion-body" id="acc-limites-4" hidden>
-            <p>Copilot solo "sabe" lo que hay dentro del archivo que tenés abierto. No puede navegar por internet, no puede consultar otras bases de datos y no puede leer archivos que no estén abiertos. Si le preguntás algo que no está en tu planilla — como una cotización actual o una noticia — no va a poder responderte.</p>
+            <p>La IA solo "sabe" lo que hay dentro del archivo que tenés abierto. No puede navegar por internet, no puede consultar otras bases de datos y no puede leer archivos que no estén abiertos. Si le preguntás algo que no está en tu planilla — como una cotización actual o una noticia — no va a poder responderte.</p>
             <div class="prompt-row">
-              <div class="prompt prompt-good"><span class="mark">✓</span> Si necesitás un dato externo (una fecha, un precio, una tasa), buscalo vos y agregalo a la planilla. Recién ahí Copilot va a poder usarlo.</div>
+              <div class="prompt prompt-good"><span class="mark">✓</span> Si necesitás un dato externo (una fecha, un precio, una tasa), buscalo vos y agregalo a la planilla. Recién ahí la IA va a poder usarlo.</div>
             </div>
           </div>
         </div>
@@ -742,7 +752,7 @@
         <div class="tip-body" id="tip-p1-limites-vigencia" hidden>
           <ul>
             <li><strong>Los errores van a seguir existiendo siempre.</strong> No es un límite técnico que se "arregle" con una actualización — es algo propio de cualquier IA. La regla de oro sigue siendo: revisá antes de confiar.</li>
-            <li><strong>El formato condicional complejo mejora, pero todavía no está resuelto.</strong> Copilot sigue sin poder crear reglas basadas en fórmulas avanzadas. Sí aparecieron novedades que ayudan: ahora se le pueden dejar "reglas guardadas" en lenguaje simple (por ejemplo, "siempre formateá la moneda sin decimales") para que no tengas que repetir el mismo pedido una y otra vez.</li>
+            <li><strong>El formato condicional complejo mejora, pero todavía no está resuelto.</strong> La IA sigue sin poder crear reglas basadas en fórmulas avanzadas. Sí aparecieron novedades que ayudan: ahora se le pueden dejar "reglas guardadas" en lenguaje simple (por ejemplo, "siempre formateá la moneda sin decimales") para que no tengas que repetir el mismo pedido una y otra vez.</li>
             <li><strong>El límite de tablas grandes se mantiene prácticamente igual:</strong> alrededor de dos millones de celdas como techo confiable. Si tu tabla es más grande, seguís necesitando filtrarla o dividirla.</li>
             <li><strong>Sigue sin poder buscar información externa</strong> por sí mismo, salvo en cuentas empresariales especiales, que pueden conectarse a correos o documentos de trabajo — pero tampoco a internet.</li>
           </ul>
@@ -754,7 +764,7 @@
           💡 Dato extra que quizás no esperabas <span class="chev" aria-hidden="true">▸</span>
         </button>
         <div class="tip-body" id="tip-p1-macros" hidden>
-          <p>Copilot en Excel, hoy en día, tampoco puede crear ni ejecutar macros (esas "grabaciones" de acciones repetitivas que a veces se usan en Excel). Si tu trabajo depende de ese tipo de automatización, vas a necesitar otra herramienta o hacerlo de forma manual, al menos por ahora.</p>
+          <p>La IA, en Excel, hoy en día, tampoco puede crear ni ejecutar macros (esas "grabaciones" de acciones repetitivas que a veces se usan en Excel). Si tu trabajo depende de ese tipo de automatización, vas a necesitar otra herramienta o hacerlo de forma manual, al menos por ahora.</p>
         </div>
       </div>
 
@@ -769,19 +779,19 @@
       <dl class="glossary">
         <div class="gterm">
           <dt>Prompt</dt>
-          <dd>La instrucción en lenguaje natural que le escribís a Copilot.</dd>
+          <dd>La instrucción en lenguaje natural que le escribís a la IA.</dd>
         </div>
         <div class="gterm">
           <dt>Tabla de Excel</dt>
-          <dd>Rango de datos convertido con Insertar → Tabla; tiene nombre propio y encabezados que Copilot puede leer con más precisión.</dd>
+          <dd>Rango de datos convertido con Insertar → Tabla; tiene nombre propio y encabezados que la IA puede leer con más precisión.</dd>
         </div>
         <div class="gterm">
           <dt>Grounding / anclaje</dt>
-          <dd>El origen de datos concreto (hoja, tabla, archivo) sobre el que Copilot basa su respuesta.</dd>
+          <dd>El origen de datos concreto (hoja, tabla, archivo) sobre el que la IA basa su respuesta.</dd>
         </div>
         <div class="gterm">
           <dt>Modo Agente</dt>
-          <dd>Función que permite que Copilot resuelva varios pasos encadenados a partir de una sola instrucción.</dd>
+          <dd>Función que permite que la IA resuelva varios pasos encadenados a partir de una sola instrucción.</dd>
         </div>
       </dl>
 
@@ -792,22 +802,22 @@
     <section id="p2-pregunta-datos" class="panel" role="tabpanel" hidden>
       <span class="eyebrow">Parte 2 · Hoja 1</span>
       <h1>Pregúntale a tus datos</h1>
-      <p class="lede">Hasta ahora usaste Copilot para pedirle acciones sobre tu planilla. En esta hoja das el siguiente paso: convertir preguntas de negocio en respuestas concretas — sin escribir una sola fórmula.</p>
+      <p class="lede">Hasta ahora usaste la IA para pedirle acciones sobre tu planilla. En esta hoja das el siguiente paso: convertir preguntas de negocio en respuestas concretas — sin escribir una sola fórmula.</p>
 
       <h2>¿Qué es una "pregunta puntual"?</h2>
-      <p>Una pregunta puntual es la que tiene una respuesta concreta: un número, un nombre o una fecha. "¿Cuál fue el mes con más ventas?", "¿cuántas unidades vendimos?" o "¿quién fue el mejor vendedor?" son preguntas puntuales. Antes de Copilot, este tipo de respuestas requerían fórmulas como <code>MAX</code>, <code>MIN</code>, <code>SUMA</code>, <code>CONTAR</code> o <code>PROMEDIO</code>, a veces combinadas entre sí. Ahora simplemente las preguntás en lenguaje natural.</p>
+      <p>Una pregunta puntual es la que tiene una respuesta concreta: un número, un nombre o una fecha. "¿Cuál fue el mes con más ventas?", "¿cuántas unidades vendimos?" o "¿quién fue el mejor vendedor?" son preguntas puntuales. Antes de la IA, este tipo de respuestas requerían fórmulas como <code>MAX</code>, <code>MIN</code>, <code>SUMA</code>, <code>CONTAR</code> o <code>PROMEDIO</code>, a veces combinadas entre sí. Ahora simplemente las preguntás en lenguaje natural.</p>
 
       <div class="accordion-group" id="accordion-pregunta-datos">
         <div class="cell-card accordion-card">
           <span class="cell-ref">B1</span>
           <button class="accordion-trigger" type="button" aria-expanded="false" aria-controls="acc-pregunta-datos-1">
-            <h3>1. Copilot decide solo si necesita tocar tu hoja</h3>
+            <h3>1. La IA decide sola si necesita tocar tu hoja</h3>
             <span class="chev" aria-hidden="true">▸</span>
           </button>
           <div class="accordion-body" id="acc-pregunta-datos-1" hidden>
-            <p>Hoy ya no elegís manualmente entre "modo chat" y "modo agente": es una sola conversación. Le hacés una pregunta puntual y Copilot responde; si para llegar a esa respuesta necesita hacer un cálculo intermedio, puede crear por su cuenta un pequeño conjunto de datos auxiliar en la hoja para mostrarte cómo llegó al resultado. Vos no activás nada aparte, simplemente sucede cuando hace falta.</p>
+            <p>Hoy ya no elegís manualmente entre "modo chat" y "modo agente": es una sola conversación. Le hacés una pregunta puntual y la IA responde; si para llegar a esa respuesta necesita hacer un cálculo intermedio, puede crear por su cuenta un pequeño conjunto de datos auxiliar en la hoja para mostrarte cómo llegó al resultado. Vos no activás nada aparte, simplemente sucede cuando hace falta.</p>
             <div class="prompt-row">
-              <div class="prompt prompt-good"><span class="mark">✓</span> Si preferís que no toque tu planilla para nada, decíselo en el mismo prompt: "respondeme sin modificar la hoja". Si no te molesta el dato auxiliar, dejalo trabajar como le resulte más preciso.</div>
+              <div class="prompt prompt-good"><span class="mark">✓</span> Si preferís que no toque tu planilla para nada, decíselo en el mismo prompt: "respondeme sin modificar la hoja". Si no te molesta el dato auxiliar, dejala trabajar como le resulte más preciso.</div>
             </div>
           </div>
         </div>
@@ -825,7 +835,7 @@
               <div class="prompt prompt-good"><span class="mark">✓</span> "¿Cuál fue el mes con mayor total de ventas en la columna Total?"</div>
             </div>
             <div class="exercise">
-              <label><input type="checkbox"><span>Tomá una pregunta ambigua que se te ocurra sobre tus datos y reescribila nombrando la columna exacta que querés que Copilot use.</span></label>
+              <label><input type="checkbox"><span>Tomá una pregunta ambigua que se te ocurra sobre tus datos y reescribila nombrando la columna exacta que querés que la IA use.</span></label>
             </div>
           </div>
         </div>
@@ -838,7 +848,7 @@
     <section id="p2-ejercicio-1" class="panel" role="tabpanel" hidden>
       <span class="eyebrow">Parte 2 · Hoja 2</span>
       <h1>Practicá con una planilla de ejemplo</h1>
-      <p>Para esta hoja vas a necesitar una planilla ficticia de ventas con estas columnas: <strong>Mes, Región, Producto, Vendedor, Unidades, Precio Unitario y Total</strong>. Si no tenés una a mano, pedile a Copilot que te la arme con este prompt:</p>
+      <p>Para esta hoja vas a necesitar una planilla ficticia de ventas con estas columnas: <strong>Mes, Región, Producto, Vendedor, Unidades, Precio Unitario y Total</strong>. Si no tenés una a mano, pedile a la IA que te la arme con este prompt:</p>
 
       <div class="prompt-row">
         <div class="prompt prompt-good prompt-copyable">
@@ -849,7 +859,7 @@
         </div>
       </div>
 
-      <p style="font-size:13.5px; color:var(--ink-soft);">Copilot va a inventar sus propios nombres de vendedores, productos y regiones — no van a coincidir con los de nadie más, y no hace falta que coincidan con los de este ejemplo. Lo importante es que la estructura de columnas sea esa. A modo ilustrativo, así podría verse:</p>
+      <p style="font-size:13.5px; color:var(--ink-soft);">La IA va a inventar sus propios nombres de vendedores, productos y regiones — no van a coincidir con los de nadie más, y no hace falta que coincidan con los de este ejemplo. Lo importante es que la estructura de columnas sea esa. A modo ilustrativo, así podría verse:</p>
 
       <div class="practice-table-wrap">
         <table class="practice-table">
@@ -864,7 +874,7 @@
           </tbody>
         </table>
       </div>
-      <p style="font-size:13.5px; color:var(--ink-soft);">Con tu planilla lista (guardada en OneDrive para poder usar Copilot), probá estas cuatro preguntas puntuales, una por una:</p>
+      <p style="font-size:13.5px; color:var(--ink-soft);">Con tu planilla lista y guardada donde tu IA pueda acceder a ella (por ejemplo, OneDrive si usás Copilot), probá estas cuatro preguntas puntuales, una por una:</p>
 
       <div class="qa-list">
         <div class="qa-item">
@@ -886,13 +896,13 @@
       </div>
 
       <div class="exercise">
-        <label><input type="checkbox"><span>Hacele estas cuatro preguntas a Copilot sobre tu planilla y anotá qué respuesta te da cada una.</span></label>
+        <label><input type="checkbox"><span>Hacele estas cuatro preguntas a la IA sobre tu planilla y anotá qué respuesta te da cada una.</span></label>
         <label style="margin-top:6px;"><input type="checkbox"><span>Repetí una de las cuatro preguntas quitándole el nombre exacto de la columna (por ejemplo "¿cuál fue el mejor mes?") y compará si la respuesta cambia o se vuelve más confusa.</span></label>
       </div>
 
       <div class="prof-note">
         <span class="prof-label">💡 Sobre el dato auxiliar</span>
-        <p>Si ves que Copilot dejó una tabla chica con el cálculo intermedio (por ejemplo, el total agrupado por mes), no es un error: es cómo te muestra su trabajo cuando decidió tomar una acción para responderte. Podés dejarla como referencia o borrarla una vez que confirmaste la respuesta.</p>
+        <p>Si ves que la IA dejó una tabla chica con el cálculo intermedio (por ejemplo, el total agrupado por mes), no es un error: es cómo te muestra su trabajo cuando decidió tomar una acción para responderte. Podés dejarla como referencia o borrarla una vez que confirmaste la respuesta.</p>
       </div>
 
       <div class="update-box tip-wrap">
@@ -914,9 +924,9 @@
     <section id="p2-ejercicio-2" class="panel" role="tabpanel" hidden>
       <span class="eyebrow">Parte 2 · Hoja 3</span>
       <h1>Convertí preguntas en columnas y fórmulas</h1>
-      <p class="lede">Hasta acá le pediste a Copilot un solo dato de respuesta. Ahora vas a pedirle algo distinto: que ese cálculo quede instalado en tu planilla, como una columna nueva o una fórmula que seguís usando después.</p>
+      <p class="lede">Hasta acá le pediste a la IA un solo dato de respuesta. Ahora vas a pedirle algo distinto: que ese cálculo quede instalado en tu planilla, como una columna nueva o una fórmula que seguís usando después.</p>
 
-      <p style="font-size:13.5px; color:var(--ink-soft);">Antes de seguir: revisá si tu listado del Ejercicio 1 ya quedó convertido en Tabla de Excel — Copilot a veces lo hace solo. Si tiene un nombre genérico como Tabla1, renombralo a Ventas para que tus próximos prompts sean más precisos.</p>
+      <p style="font-size:13.5px; color:var(--ink-soft);">Antes de seguir: revisá si tu listado del Ejercicio 1 ya quedó convertido en Tabla de Excel — la IA a veces lo hace sola. Si tiene un nombre genérico como Tabla1, renombralo a Ventas para que tus próximos prompts sean más precisos.</p>
 
       <p style="margin-top:28px;">Probá estos tres prompts, uno por uno, sobre tu planilla:</p>
 
@@ -959,7 +969,7 @@
         <div class="tip-body" id="tip-p2-ejercicio-2" hidden>
           <ul>
             <li>Si tu listado ya es una Tabla de Excel, una columna calculada que agregues se autocompleta sola para todas las filas — es una de las ventajas de trabajar con Tabla en vez de un rango suelto.</li>
-            <li>Nombrar una tabla que ya existe no borra ni reordena tus datos, solo la registra con ese nombre para que Copilot la identifique mejor.</li>
+            <li>Nombrar una tabla que ya existe no borra ni reordena tus datos, solo la registra con ese nombre para que la IA la identifique mejor.</li>
           </ul>
         </div>
       </div>
@@ -971,10 +981,10 @@
     <section id="p2-ejercicio-3" class="panel" role="tabpanel" hidden>
       <span class="eyebrow">Parte 2 · Hoja 4</span>
       <h1>Buscá y conectá datos entre tablas</h1>
-      <p class="lede">Hasta acá trabajaste siempre con una sola tabla. Ahora vas a armar tres tablas relacionadas entre sí y vas a pedirle a Copilot que traiga datos de una hacia otra — el terreno donde antes vivían las fórmulas BUSCARV o BUSCARX.</p>
+      <p class="lede">Hasta acá trabajaste siempre con una sola tabla. Ahora vas a armar tres tablas relacionadas entre sí y vas a pedirle a la IA que traiga datos de una hacia otra — el terreno donde antes vivían las fórmulas BUSCARV o BUSCARX.</p>
 
       <h2>Armá las tres tablas de partida</h2>
-      <p>Vas a necesitar tres hojas nuevas en tu archivo: Empleados, Departamentos y Salarios. Pedile a Copilot que te arme cada una con estos prompts, uno por uno y en ese orden — así los códigos de departamento coinciden entre las tres.</p>
+      <p>Vas a necesitar tres hojas nuevas en tu archivo: Empleados, Departamentos y Salarios. Pedile a la IA que te arme cada una con estos prompts, uno por uno y en ese orden — así los códigos de departamento coinciden entre las tres.</p>
 
       <div class="prompt-row">
         <div class="prompt prompt-good prompt-copyable">
@@ -1008,7 +1018,7 @@
       </div>
 
       <h2>Las 3 reglas para pedir búsquedas entre tablas</h2>
-      <p>Cuando el dato que necesitás no está en la tabla donde estás parado, Copilot tiene que ir a buscarlo a otra — y ahí aparecen tres cosas que tenés que dejar claras para que no se confunda.</p>
+      <p>Cuando el dato que necesitás no está en la tabla donde estás parado, la IA tiene que ir a buscarlo a otra — y ahí aparecen tres cosas que tenés que dejar claras para que no se confunda.</p>
 
       <div class="accordion-group" id="accordion-ejercicio3">
         <div class="cell-card accordion-card">
@@ -1018,7 +1028,7 @@
             <span class="chev" aria-hidden="true">▸</span>
           </button>
           <div class="accordion-body" id="acc-ejercicio3-1" hidden>
-            <p>Ya lo veníamos pidiendo desde la Parte 1, pero acá se vuelve indispensable: si tus tablas se llaman Empleados, Departamentos y Salarios en vez de Tabla1, Tabla2 y Tabla3, Copilot entiende mucho mejor de dónde tiene que traer cada dato cuando se lo pedís por nombre.</p>
+            <p>Ya lo veníamos pidiendo desde la Parte 1, pero acá se vuelve indispensable: si tus tablas se llaman Empleados, Departamentos y Salarios en vez de Tabla1, Tabla2 y Tabla3, la IA entiende mucho mejor de dónde tiene que traer cada dato cuando se lo pedís por nombre.</p>
           </div>
         </div>
 
@@ -1029,7 +1039,7 @@
             <span class="chev" aria-hidden="true">▸</span>
           </button>
           <div class="accordion-body" id="acc-ejercicio3-2" hidden>
-            <p>Copilot necesita entender tres cosas para armar la búsqueda: de qué tabla viene el dato, qué columna tienen en común las dos tablas, y en qué columna de tu tabla actual tiene que aparecer el resultado. Si dejás alguna de esas tres afuera del prompt, es más probable que tengas que corregirlo después.</p>
+            <p>La IA necesita entender tres cosas para armar la búsqueda: de qué tabla viene el dato, qué columna tienen en común las dos tablas, y en qué columna de tu tabla actual tiene que aparecer el resultado. Si dejás alguna de esas tres afuera del prompt, es más probable que tengas que corregirlo después.</p>
           </div>
         </div>
 
@@ -1040,7 +1050,7 @@
             <span class="chev" aria-hidden="true">▸</span>
           </button>
           <div class="accordion-body" id="acc-ejercicio3-3" hidden>
-            <p>No hace falta que le digas a Copilot qué función usar — si describís bien el pedido, él elige entre BUSCARX, BUSCARV u otra por su cuenta. La excepción es cuando vos necesitás una función específica por algún motivo puntual, por ejemplo porque el archivo lo va a abrir alguien con una versión de Excel que todavía no tiene BUSCARX. Ahí sí tenés que nombrarla en el prompt.</p>
+            <p>No hace falta que le digas a la IA qué función usar — si describís bien el pedido, ella elige entre BUSCARX, BUSCARV u otra por su cuenta. La excepción es cuando vos necesitás una función específica por algún motivo puntual, por ejemplo porque el archivo lo va a abrir alguien con una versión de Excel que todavía no tiene BUSCARX. Ahí sí tenés que nombrarla en el prompt.</p>
             <div class="prompt-row">
               <div class="prompt prompt-bad"><span class="mark">✕</span> "Necesito buscar v en esta tabla." <em style="color:var(--ink-soft); font-style:normal;">(sin decir qué dato, de dónde ni hacia dónde)</em></div>
               <div class="prompt prompt-good"><span class="mark">✓</span> "Traé el Salario_Base desde la tabla Salarios a la tabla Empleados usando ID_Departamento, con la función BUSCARV."</div>
@@ -1068,7 +1078,7 @@
       </div>
 
       <div class="exercise">
-        <label><input type="checkbox"><span>Probá el primer prompt sin nombrar ninguna función y fijate cuál eligió Copilot por su cuenta.</span></label>
+        <label><input type="checkbox"><span>Probá el primer prompt sin nombrar ninguna función y fijate cuál eligió la IA por su cuenta.</span></label>
         <label style="margin-top:6px;"><input type="checkbox"><span>Elegí dos filas al azar de la tabla Empleados y revisá a mano, mirando la tabla Departamentos y Salarios, que el Departamento y el Salario Base traídos sean los correctos.</span></label>
       </div>
 
@@ -1099,15 +1109,15 @@
         </div>
         <div class="gterm">
           <dt>Comportamiento agéntico</dt>
-          <dd>Capacidad de Copilot de tomar acciones sobre la hoja (no solo responder) cuando lo necesita, sin que el alumno tenga que activar un modo aparte.</dd>
+          <dd>Capacidad de la IA de tomar acciones sobre la hoja (no solo responder) cuando lo necesita, sin que el alumno tenga que activar un modo aparte.</dd>
         </div>
         <div class="gterm">
           <dt>Dato auxiliar</dt>
-          <dd>Tabla o cálculo intermedio que Copilot deja en la hoja como evidencia de cómo llegó a un resultado.</dd>
+          <dd>Tabla o cálculo intermedio que la IA deja en la hoja como evidencia de cómo llegó a un resultado.</dd>
         </div>
         <div class="gterm">
           <dt>Campo calculado</dt>
-          <dd>Columna nueva o fórmula que Copilot agrega a tu hoja para responder un pedido, y que queda instalada en la planilla en vez de mostrarse solo como respuesta.</dd>
+          <dd>Columna nueva o fórmula que la IA agrega a tu hoja para responder un pedido, y que queda instalada en la planilla en vez de mostrarse solo como respuesta.</dd>
         </div>
         <div class="gterm">
           <dt>Búsqueda entre tablas</dt>
@@ -1115,7 +1125,7 @@
         </div>
         <div class="gterm">
           <dt>Criterio de búsqueda</dt>
-          <dd>La columna en común entre dos tablas que Copilot usa para saber qué fila de una le corresponde a cada fila de la otra.</dd>
+          <dd>La columna en común entre dos tablas que la IA usa para saber qué fila de una le corresponde a cada fila de la otra.</dd>
         </div>
       </dl>
 
@@ -1152,7 +1162,7 @@
   const sheetMeta = {
     'p1-bienvenida':     { title: 'Bienvenida' },
     'p1-principios':     { title: 'Los 5 principios de prompting' },
-    'p1-limites':        { title: 'Los límites de Copilot' },
+    'p1-limites':        { title: 'Los límites de la IA' },
     'p1-glosario':       { title: 'Glosario rápido' },
     'p2-pregunta-datos': { title: 'Pregúntale a tus datos' },
     'p2-ejercicio-1':    { title: 'Practicá con una planilla de ejemplo' },
