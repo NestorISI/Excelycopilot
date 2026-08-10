@@ -286,6 +286,24 @@
   .update-box ul{ margin: 8px 0 0; padding-left: 18px; }
   .update-box li{ margin-bottom: 6px; font-size: 14px; line-height: 1.55; }
 
+  /* tip plegado estilo "comentario de celda": info extra que no se muestra directo,
+     el alumno la despliega con clic (y, si tiene mouse, con hover) */
+  .eyebrow.tip-trigger, .prof-label.tip-trigger{
+    border: none; background: transparent; padding: 0; margin: 0 0 6px;
+    cursor: pointer; display: inline-flex; align-items: center; gap: 7px;
+  }
+  .eyebrow.tip-trigger:hover, .prof-label.tip-trigger:hover{ text-decoration: underline; }
+  .tip-trigger .chev{
+    display:inline-block; font-family: var(--sans); font-style:normal;
+    transition: transform .15s ease; flex-shrink:0;
+  }
+  .tip-trigger[aria-expanded="true"] .chev{ transform: rotate(90deg); }
+  .tip-body{ margin-top: 8px; }
+  .tip-body[hidden]{ display:none; }
+  @media (hover:hover){
+    .tip-wrap:hover .tip-body[hidden]{ display:block; }
+  }
+
   /* glosario */
   .glossary{ display:grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 16px 0 30px; }
   .gterm{ border-bottom: 1px solid var(--line); padding-bottom: 12px; }
@@ -536,13 +554,17 @@
         <p>Cuando Copilot interpreta mal un prompt ambiguo, no hace falta empezar de cero: pedile que ajuste solo la parte que falló, señalando exactamente qué tiene que cambiar.</p>
       </div>
 
-      <div class="update-box">
-        <span class="eyebrow">Para tener en cuenta</span>
-        <ul>
-          <li>Copilot funciona mucho mejor —y en algunos casos solo funciona— si tus datos están convertidos en <strong>Tabla de Excel</strong> (Insertar → Tabla), no en un rango suelto de celdas.</li>
-          <li>Desde 2026, muchas versiones de Copilot incorporan un <strong>modo Agente</strong>, que permite encadenar varios pasos a partir de una sola instrucción más elaborada. Aun así, para aprender a prompt-ear bien conviene seguir practicando "una cosa por vez" primero.</li>
-          <li>Copilot también puede "anclarse" a otras fuentes además de la hoja activa (por ejemplo, listas de SharePoint), dependiendo del plan de Microsoft 365 que uses.</li>
-        </ul>
+      <div class="update-box tip-wrap">
+        <button class="eyebrow tip-trigger" aria-expanded="false" aria-controls="tip-p1-principios" title="Pasá el mouse o hacé clic para verlo">
+          Para tener en cuenta <span class="chev" aria-hidden="true">▸</span>
+        </button>
+        <div class="tip-body" id="tip-p1-principios" hidden>
+          <ul>
+            <li>Copilot funciona mucho mejor —y en algunos casos solo funciona— si tus datos están convertidos en <strong>Tabla de Excel</strong> (Insertar → Tabla), no en un rango suelto de celdas.</li>
+            <li>Desde 2026, muchas versiones de Copilot incorporan un <strong>modo Agente</strong>, que permite encadenar varios pasos a partir de una sola instrucción más elaborada. Aun así, para aprender a prompt-ear bien conviene seguir practicando "una cosa por vez" primero.</li>
+            <li>Copilot también puede "anclarse" a otras fuentes además de la hoja activa (por ejemplo, listas de SharePoint), dependiendo del plan de Microsoft 365 que uses.</li>
+          </ul>
+        </div>
       </div>
 
       <p style="margin-top:12px;"><button class="btn btn-ghost" data-goto="p1-limites">Ver los límites de Copilot →</button></p>
@@ -591,20 +613,29 @@
         </div>
       </div>
 
-      <div class="update-box">
+      <div class="update-box tip-wrap">
         <span class="eyebrow">¿Siguen vigentes estos límites hoy?</span>
         <p style="margin:0 0 10px; font-size:14px;">La tecnología de IA avanza rápido, así que vale la pena revisar cada tanto qué sigue siendo cierto y qué ya cambió:</p>
-        <ul>
-          <li><strong>Los errores van a seguir existiendo siempre.</strong> No es un límite técnico que se "arregle" con una actualización — es algo propio de cualquier IA. La regla de oro sigue siendo: revisá antes de confiar.</li>
-          <li><strong>El formato condicional complejo mejora, pero todavía no está resuelto.</strong> Copilot sigue sin poder crear reglas basadas en fórmulas avanzadas. Sí aparecieron novedades que ayudan: ahora se le pueden dejar "reglas guardadas" en lenguaje simple (por ejemplo, "siempre formateá la moneda sin decimales") para que no tengas que repetir el mismo pedido una y otra vez.</li>
-          <li><strong>El límite de tablas grandes se mantiene prácticamente igual:</strong> alrededor de dos millones de celdas como techo confiable. Si tu tabla es más grande, seguís necesitando filtrarla o dividirla.</li>
-          <li><strong>Sigue sin poder buscar información externa</strong> por sí mismo, salvo en cuentas empresariales especiales, que pueden conectarse a correos o documentos de trabajo — pero tampoco a internet.</li>
-        </ul>
+        <button class="eyebrow tip-trigger" aria-expanded="false" aria-controls="tip-p1-limites-vigencia" title="Pasá el mouse o hacé clic para verlo">
+          Mirá el detalle actualizado <span class="chev" aria-hidden="true">▸</span>
+        </button>
+        <div class="tip-body" id="tip-p1-limites-vigencia" hidden>
+          <ul>
+            <li><strong>Los errores van a seguir existiendo siempre.</strong> No es un límite técnico que se "arregle" con una actualización — es algo propio de cualquier IA. La regla de oro sigue siendo: revisá antes de confiar.</li>
+            <li><strong>El formato condicional complejo mejora, pero todavía no está resuelto.</strong> Copilot sigue sin poder crear reglas basadas en fórmulas avanzadas. Sí aparecieron novedades que ayudan: ahora se le pueden dejar "reglas guardadas" en lenguaje simple (por ejemplo, "siempre formateá la moneda sin decimales") para que no tengas que repetir el mismo pedido una y otra vez.</li>
+            <li><strong>El límite de tablas grandes se mantiene prácticamente igual:</strong> alrededor de dos millones de celdas como techo confiable. Si tu tabla es más grande, seguís necesitando filtrarla o dividirla.</li>
+            <li><strong>Sigue sin poder buscar información externa</strong> por sí mismo, salvo en cuentas empresariales especiales, que pueden conectarse a correos o documentos de trabajo — pero tampoco a internet.</li>
+          </ul>
+        </div>
       </div>
 
-      <div class="prof-note">
-        <span class="prof-label">💡 Dato extra que quizás no esperabas</span>
-        <p>Copilot en Excel, hoy en día, tampoco puede crear ni ejecutar macros (esas "grabaciones" de acciones repetitivas que a veces se usan en Excel). Si tu trabajo depende de ese tipo de automatización, vas a necesitar otra herramienta o hacerlo de forma manual, al menos por ahora.</p>
+      <div class="prof-note tip-wrap">
+        <button class="prof-label tip-trigger" aria-expanded="false" aria-controls="tip-p1-macros" title="Pasá el mouse o hacé clic para descubrirlo">
+          💡 Dato extra que quizás no esperabas <span class="chev" aria-hidden="true">▸</span>
+        </button>
+        <div class="tip-body" id="tip-p1-macros" hidden>
+          <p>Copilot en Excel, hoy en día, tampoco puede crear ni ejecutar macros (esas "grabaciones" de acciones repetitivas que a veces se usan en Excel). Si tu trabajo depende de ese tipo de automatización, vas a necesitar otra herramienta o hacerlo de forma manual, al menos por ahora.</p>
+        </div>
       </div>
 
       <p style="margin-top:12px;"><button class="btn btn-ghost" data-goto="p1-glosario">Ver el glosario de esta parte →</button></p>
@@ -721,12 +752,16 @@
         <p>Si ves que Copilot dejó una tabla chica con el cálculo intermedio (por ejemplo, el total agrupado por mes), no es un error: es cómo te muestra su trabajo cuando decidió tomar una acción para responderte. Podés dejarla como referencia o borrarla una vez que confirmaste la respuesta.</p>
       </div>
 
-      <div class="update-box">
-        <span class="eyebrow">Para tener en cuenta</span>
-        <ul>
-          <li>Una pregunta puntual siempre apunta a <strong>un solo dato de salida</strong>: un número, un nombre o una fecha. Si tu pregunta podría responderse con una lista o un gráfico, ya no es puntual — eso lo vas a ver en las próximas hojas de esta parte.</li>
-          <li>Recordá el límite de la Parte 1: revisá los resultados importantes antes de darlos por buenos, sobre todo si vas a tomar una decisión con ellos.</li>
-        </ul>
+      <div class="update-box tip-wrap">
+        <button class="eyebrow tip-trigger" aria-expanded="false" aria-controls="tip-p2-pregunta-datos" title="Pasá el mouse o hacé clic para verlo">
+          Para tener en cuenta <span class="chev" aria-hidden="true">▸</span>
+        </button>
+        <div class="tip-body" id="tip-p2-pregunta-datos" hidden>
+          <ul>
+            <li>Una pregunta puntual siempre apunta a <strong>un solo dato de salida</strong>: un número, un nombre o una fecha. Si tu pregunta podría responderse con una lista o un gráfico, ya no es puntual — eso lo vas a ver en las próximas hojas de esta parte.</li>
+            <li>Recordá el límite de la Parte 1: revisá los resultados importantes antes de darlos por buenos, sobre todo si vas a tomar una decisión con ellos.</li>
+          </ul>
+        </div>
       </div>
 
       <p style="margin-top:12px;"><button class="btn btn-ghost" data-goto="p2-glosario">Ver el glosario de esta parte →</button></p>
@@ -833,6 +868,18 @@
 
   document.querySelectorAll('[data-goto-part]').forEach(btn => {
     btn.addEventListener('click', () => setActivePart(btn.dataset.gotoPart));
+  });
+
+  // ---- tips plegados (info extra que el alumno despliega con clic) ----
+  document.querySelectorAll('.tip-trigger').forEach(trigger => {
+    trigger.addEventListener('click', () => {
+      const body = document.getElementById(trigger.getAttribute('aria-controls'));
+      if (!body) return;
+      const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+      trigger.setAttribute('aria-expanded', String(!isOpen));
+      if (isOpen) { body.setAttribute('hidden', ''); }
+      else { body.removeAttribute('hidden'); }
+    });
   });
 
   // estado inicial
