@@ -248,6 +248,24 @@
   }
   .cell-card h3{ margin-top: 4px; }
 
+  /* acordeón de principios: reutiliza el mismo lenguaje visual del chevron de los tips */
+  .accordion-card{ padding-bottom: 20px; }
+  .accordion-trigger{
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    width: 100%; margin-top: 4px;
+    background: none; border: none; padding: 0;
+    cursor: pointer; text-align: left; font: inherit; color: inherit;
+  }
+  .accordion-trigger h3{ margin: 0; }
+  .accordion-trigger:hover h3{ color: var(--green-deep); }
+  .accordion-trigger .chev{
+    display:inline-block; font-family: var(--sans); font-style:normal; color: var(--green);
+    transition: transform .15s ease; flex-shrink:0; font-size: 15px;
+  }
+  .accordion-trigger[aria-expanded="true"] .chev{ transform: rotate(90deg); }
+  .accordion-body{ margin-top: 14px; }
+  .accordion-body[hidden]{ display:none; }
+
   .prompt-row{ display:grid; grid-template-columns: 1fr; gap: 8px; margin: 12px 0; }
   .prompt{
     font-family: var(--mono); font-size: 13px; line-height: 1.5;
@@ -484,68 +502,95 @@
       <h1>Los 5 principios para prompts efectivos en Copilot</h1>
       <p class="lede">Cinco reglas para escribir instrucciones que Copilot entienda bien a la primera, en lugar de tener que corregir el resultado varias veces.</p>
 
-      <div class="cell-card">
-        <span class="cell-ref">A1</span>
-        <h3>1. Sé específico con los nombres</h3>
-        <p>Copilot no adivina a qué te referís si usás nombres vagos ("la tabla", "esos datos"). Nombrá exactamente la hoja, la tabla o el archivo sobre el que querés que trabaje.</p>
-        <div class="prompt-row">
-          <div class="prompt prompt-bad"><span class="mark">✕</span> "Sumá las ventas de la tabla."</div>
-          <div class="prompt prompt-good"><span class="mark">✓</span> "Sumá la columna Total de la tabla Ventas2025."</div>
+      <div class="accordion-group" id="accordion-principios">
+        <div class="cell-card accordion-card">
+          <span class="cell-ref">A1</span>
+          <button class="accordion-trigger" type="button" aria-expanded="false" aria-controls="acc-principios-1">
+            <h3>1. Sé específico con los nombres</h3>
+            <span class="chev" aria-hidden="true">▸</span>
+          </button>
+          <div class="accordion-body" id="acc-principios-1" hidden>
+            <p>Copilot no adivina a qué te referís si usás nombres vagos ("la tabla", "esos datos"). Nombrá exactamente la hoja, la tabla o el archivo sobre el que querés que trabaje.</p>
+            <div class="prompt-row">
+              <div class="prompt prompt-bad"><span class="mark">✕</span> "Sumá las ventas de la tabla."</div>
+              <div class="prompt prompt-good"><span class="mark">✓</span> "Sumá la columna Total de la tabla Ventas2025."</div>
+            </div>
+            <div class="exercise">
+              <label><input type="checkbox"><span>Abrí un archivo tuyo y pedile a Copilot algo nombrando la tabla exacta por su nombre real (Insertar → Tabla te da un nombre en la pestaña Diseño de Tabla).</span></label>
+            </div>
+          </div>
         </div>
-        <div class="exercise">
-          <label><input type="checkbox"><span>Abrí un archivo tuyo y pedile a Copilot algo nombrando la tabla exacta por su nombre real (Insertar → Tabla te da un nombre en la pestaña Diseño de Tabla).</span></label>
-        </div>
-      </div>
 
-      <div class="cell-card">
-        <span class="cell-ref">A2</span>
-        <h3>2. Referite a las columnas por su nombre exacto</h3>
-        <p>Usá el encabezado tal cual está escrito en tu hoja, no una versión aproximada. Si tu columna dice "Fecha de Ingreso", escribilo igual — mayúsculas y todo si así aparece.</p>
-        <div class="prompt-row">
-          <div class="prompt prompt-bad"><span class="mark">✕</span> "Ordená por fecha."</div>
-          <div class="prompt prompt-good"><span class="mark">✓</span> "Ordená de forma ascendente por la columna Fecha de Ingreso."</div>
+        <div class="cell-card accordion-card">
+          <span class="cell-ref">A2</span>
+          <button class="accordion-trigger" type="button" aria-expanded="false" aria-controls="acc-principios-2">
+            <h3>2. Referite a las columnas por su nombre exacto</h3>
+            <span class="chev" aria-hidden="true">▸</span>
+          </button>
+          <div class="accordion-body" id="acc-principios-2" hidden>
+            <p>Usá el encabezado tal cual está escrito en tu hoja, no una versión aproximada. Si tu columna dice "Fecha de Ingreso", escribilo igual — mayúsculas y todo si así aparece.</p>
+            <div class="prompt-row">
+              <div class="prompt prompt-bad"><span class="mark">✕</span> "Ordená por fecha."</div>
+              <div class="prompt prompt-good"><span class="mark">✓</span> "Ordená de forma ascendente por la columna Fecha de Ingreso."</div>
+            </div>
+            <div class="exercise">
+              <label><input type="checkbox"><span>Revisá los encabezados de tu tabla y copialos tal cual en tu próximo prompt.</span></label>
+            </div>
+          </div>
         </div>
-        <div class="exercise">
-          <label><input type="checkbox"><span>Revisá los encabezados de tu tabla y copialos tal cual en tu próximo prompt.</span></label>
-        </div>
-      </div>
 
-      <div class="cell-card">
-        <span class="cell-ref">A3</span>
-        <h3>3. Especificá el rango o las condiciones</h3>
-        <p>Decile a Copilot dónde empieza y termina el trabajo, o bajo qué condición filtrar. Sin eso, puede interpretar la hoja completa cuando vos querías solo una parte.</p>
-        <div class="prompt-row">
-          <div class="prompt prompt-bad"><span class="mark">✕</span> "Contame cuántos son mayores a 100."</div>
-          <div class="prompt prompt-good"><span class="mark">✓</span> "Contá cuántas filas de la columna Monto tienen un valor mayor a 100, solo en la región Norte."</div>
+        <div class="cell-card accordion-card">
+          <span class="cell-ref">A3</span>
+          <button class="accordion-trigger" type="button" aria-expanded="false" aria-controls="acc-principios-3">
+            <h3>3. Especificá el rango o las condiciones</h3>
+            <span class="chev" aria-hidden="true">▸</span>
+          </button>
+          <div class="accordion-body" id="acc-principios-3" hidden>
+            <p>Decile a Copilot dónde empieza y termina el trabajo, o bajo qué condición filtrar. Sin eso, puede interpretar la hoja completa cuando vos querías solo una parte.</p>
+            <div class="prompt-row">
+              <div class="prompt prompt-bad"><span class="mark">✕</span> "Contame cuántos son mayores a 100."</div>
+              <div class="prompt prompt-good"><span class="mark">✓</span> "Contá cuántas filas de la columna Monto tienen un valor mayor a 100, solo en la región Norte."</div>
+            </div>
+            <div class="exercise">
+              <label><input type="checkbox"><span>Escribí un prompt de filtro incluyendo la condición numérica o de texto exacta que necesitás.</span></label>
+            </div>
+          </div>
         </div>
-        <div class="exercise">
-          <label><input type="checkbox"><span>Escribí un prompt de filtro incluyendo la condición numérica o de texto exacta que necesitás.</span></label>
-        </div>
-      </div>
 
-      <div class="cell-card">
-        <span class="cell-ref">A4</span>
-        <h3>4. Usá lenguaje simple</h3>
-        <p>No hace falta escribirle a Copilot como si fuera una fórmula. Andá directo con verbos claros: crear, resumir, comparar, ordenar, filtrar. Evitá rodeos.</p>
-        <div class="prompt-row">
-          <div class="prompt prompt-bad"><span class="mark">✕</span> "Quisiera que, si no es mucha molestia, me ayudaras a ver de qué forma podría calcular un total."</div>
-          <div class="prompt prompt-good"><span class="mark">✓</span> "Calculá el total de la columna Ventas."</div>
+        <div class="cell-card accordion-card">
+          <span class="cell-ref">A4</span>
+          <button class="accordion-trigger" type="button" aria-expanded="false" aria-controls="acc-principios-4">
+            <h3>4. Usá lenguaje simple</h3>
+            <span class="chev" aria-hidden="true">▸</span>
+          </button>
+          <div class="accordion-body" id="acc-principios-4" hidden>
+            <p>No hace falta escribirle a Copilot como si fuera una fórmula. Andá directo con verbos claros: crear, resumir, comparar, ordenar, filtrar. Evitá rodeos.</p>
+            <div class="prompt-row">
+              <div class="prompt prompt-bad"><span class="mark">✕</span> "Quisiera que, si no es mucha molestia, me ayudaras a ver de qué forma podría calcular un total."</div>
+              <div class="prompt prompt-good"><span class="mark">✓</span> "Calculá el total de la columna Ventas."</div>
+            </div>
+            <div class="exercise">
+              <label><input type="checkbox"><span>Reescribí tu último prompt eliminando toda palabra que no sea necesaria.</span></label>
+            </div>
+          </div>
         </div>
-        <div class="exercise">
-          <label><input type="checkbox"><span>Reescribí tu último prompt eliminando toda palabra que no sea necesaria.</span></label>
-        </div>
-      </div>
 
-      <div class="cell-card">
-        <span class="cell-ref">A5</span>
-        <h3>5. Un objetivo por prompt, no varios sueltos</h3>
-        <p>Podés pedirle varios pasos en un mismo prompt si todos apuntan a resolver lo mismo — agregar tres columnas calculadas y después ordenar por una de ellas es una sola tarea. El problema aparece cuando metés pedidos que no tienen relación entre sí: ahí Copilot tiene que rellenar huecos de decisión por su cuenta, y es más probable que se pierda algo.</p>
-        <div class="prompt-row">
-          <div class="prompt prompt-bad"><span class="mark">✕</span> "Agregá columnas de IVA, Margen y Comisión, y además creame una hoja nueva con el listado de clientes morosos."</div>
-          <div class="prompt prompt-good"><span class="mark">✓</span> "Agregá columnas de IVA, Margen y Comisión, y ordená de mayor a menor por Margen."</div>
-        </div>
-        <div class="exercise">
-          <label><input type="checkbox"><span>Tomá un prompt que hayas escrito con pedidos sin relación entre sí y separalo en prompts individuales, uno por objetivo.</span></label>
+        <div class="cell-card accordion-card">
+          <span class="cell-ref">A5</span>
+          <button class="accordion-trigger" type="button" aria-expanded="false" aria-controls="acc-principios-5">
+            <h3>5. Un objetivo por prompt, no varios sueltos</h3>
+            <span class="chev" aria-hidden="true">▸</span>
+          </button>
+          <div class="accordion-body" id="acc-principios-5" hidden>
+            <p>Podés pedirle varios pasos en un mismo prompt si todos apuntan a resolver lo mismo — agregar tres columnas calculadas y después ordenar por una de ellas es una sola tarea. El problema aparece cuando metés pedidos que no tienen relación entre sí: ahí Copilot tiene que rellenar huecos de decisión por su cuenta, y es más probable que se pierda algo.</p>
+            <div class="prompt-row">
+              <div class="prompt prompt-bad"><span class="mark">✕</span> "Agregá columnas de IVA, Margen y Comisión, y además creame una hoja nueva con el listado de clientes morosos."</div>
+              <div class="prompt prompt-good"><span class="mark">✓</span> "Agregá columnas de IVA, Margen y Comisión, y ordená de mayor a menor por Margen."</div>
+            </div>
+            <div class="exercise">
+              <label><input type="checkbox"><span>Tomá un prompt que hayas escrito con pedidos sin relación entre sí y separalo en prompts individuales, uno por objetivo.</span></label>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -899,6 +944,29 @@
       trigger.setAttribute('aria-expanded', String(!isOpen));
       if (isOpen) { body.setAttribute('hidden', ''); }
       else { body.removeAttribute('hidden'); }
+    });
+  });
+
+  // ---- acordeón de los 5 principios (P1.H2): un solo principio abierto a la vez ----
+  document.querySelectorAll('.accordion-trigger').forEach(trigger => {
+    trigger.addEventListener('click', () => {
+      const body = document.getElementById(trigger.getAttribute('aria-controls'));
+      if (!body) return;
+      const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+
+      const group = trigger.closest('.accordion-group');
+      if (group){
+        group.querySelectorAll('.accordion-trigger').forEach(t => {
+          t.setAttribute('aria-expanded', 'false');
+          const b = document.getElementById(t.getAttribute('aria-controls'));
+          if (b) b.setAttribute('hidden', '');
+        });
+      }
+
+      if (!isOpen){
+        trigger.setAttribute('aria-expanded', 'true');
+        body.removeAttribute('hidden');
+      }
     });
   });
 
